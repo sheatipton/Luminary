@@ -1,0 +1,49 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.otherOptions {
+  margin-top: 1.5rem;
+}
+
+.otherOptions a{
+  color: #403F48;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin a{
+  color: #403F48;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 0.5rem;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: 0.5rem;
+}
+
+.form-signin input[name="password"] {
+  margin-bottom: 1.5rem;
+}
+
+.form-signin input[name="confirm_password"] {
+  margin-bottom: 1.5rem;
+}

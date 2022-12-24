@@ -1,0 +1,17 @@
+.bi {
+  margin-bottom: 0;
+}
+
+br {
+  display: block;
+  margin-top: 0;
+  content: "";
+}
+
+.me-auto {
+  margin-top: auto;
+}
+
+.mb-3 {
+  margin-top: auto;
+}

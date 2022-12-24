@@ -1,0 +1,59 @@
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  font-family: 'Anek Tamil', sans-serif;
+  background-color: #F9F8EB;
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  /* max-height: 100vh; */
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: #F2F4D1;
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+a {
+  color: #5E6073;
+}
+
+.nav-link:hover,
+.fs-4:hover {
+  color: #89A3B2;
+}
+
+.hd {
+  margin-left: 1rem;
+}
+
+.card {
+  margin-top: 5rem;
+  height: 15rem;
+}
+
+.btn-light {
+  color: #F9F8EB;
+  background-color: #5C8D89;
+}
+
+.title {
+  font-size: 40px;
+  color: #89A3B2;
+  font-family: 'Tenor Sans', sans-serif;
+  margin-left: 1rem;
+}

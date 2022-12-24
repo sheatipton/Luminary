@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+  font-family: 'Anek Tamil', sans-serif;
+  background-color: #F9F8EB;
+}
+
+.card {
+  border: none;
+}
+
+.logo {
+  /* background-color: #E3D9CA; */
+  border-bottom: solid #E3D9CA;
+}
+
+.totals tr td {
+  font-size: 13px;
+}
+
+.footer {
+  /* background-color: #E3D9CA; */
+  border-top: solid #E3D9CA;
+}
+
+.footer span {
+  font-size: 12px;
+}
+
+.product-qty span {
+  font-size: 12px;
+}
+
+.brandName {
+  font-size: 20px;
+  margin-left: 20px;
+  font-family: 'Tenor Sans', sans-serif;
+}
+
+.cover {
+  width: 100px;
+}

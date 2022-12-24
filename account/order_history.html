@@ -1,0 +1,251 @@
+<!-- Represents a list of orders -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="icon" href="../favicon_io/favicon.ico">
+  <link rel="stylesheet" id="css-main" href="../assets/css/oneui.min.css">
+  <link rel="stylesheet" href="../style/index.css">
+  <link rel="stylesheet" href="../style/payment.css">
+  <title>Luminary - Reservation</title>
+</head>
+<style media="screen">
+  .fw-semibold:hover {
+    background-color: #74B49B;
+    color: #F9F8EB;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <div class="py-5 text-center">
+      <div class="topcontainer" style=" margin-top: 2rem;">
+        <a href="index.php">
+          <h1 class="h3 mb-3 fw-normal" style="text-decoration: none; color: #403F48; font-family: 'Tenor Sans', sans-serif;">Luminary</h1>
+        </a>
+        <img class="mb-4" src="../images\sun.png" alt="sunFlaticon" height=60px weight=60px>
+      </div>
+      <hr>
+    </div>
+
+    <!-- card -->
+    <div class="card">
+      <!-- All Orders -->
+      <div class="block block-rounded">
+        <div class="block-header block-header-default">
+          <h3 class="block-title">All Orders</h3>
+          <div class="block-options">
+          </div>
+        </div>
+        <div class="block-content">
+
+          <!-- All Orders Table -->
+          <div class="table-responsive">
+            <table class="table table-borderless table-striped table-vcenter">
+              <thead>
+                <tr>
+                  <th class="text-center" style="width: 100px;">Order ID</th>
+                  <th class="d-none d-sm-table-cell text-center">Submitted</th>
+                  <th>Status</th>
+                  <th class="d-none d-xl-table-cell text-center">Number of Items</th>
+                  <th class="d-none d-sm-table-cell text-end">Total</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">
+                      <strong>ORD.00965</strong>
+                    </a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-center fs-sm">11/02/2020</td>
+                  <td>
+                    <span>Refunded</span>
+                  </td>
+                  <td class="d-none d-xl-table-cell text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">6</a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-end fs-sm">
+                    <strong>$1413,98</strong>
+                  </td>
+                  <td class="text-center">
+                    <a class="btn btn-sm btn-alt-secondary" href="order.php" data-bs-toggle="tooltip" title="View">
+                      <i class="fa fa-fw fa-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">
+                      <strong>ORD.00964</strong>
+                    </a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-center fs-sm">13/09/2020</td>
+                  <td>
+                    <span>Refunded</span>
+                  </td>
+                  <td class="d-none d-xl-table-cell text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">1</a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-end fs-sm">
+                    <strong>$1926,61</strong>
+                  </td>
+                  <td class="text-center">
+                    <a class="btn btn-sm btn-alt-secondary" href="order.php" data-bs-toggle="tooltip" title="View">
+                      <i class="fa fa-fw fa-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">
+                      <strong>ORD.00963</strong>
+                    </a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-center fs-sm">13/09/2020</td>
+                  <td>
+                    <span>Delivered</span>
+                  </td>
+                  <td class="d-none d-xl-table-cell text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">2</a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-end fs-sm">
+                    <strong>$662,19</strong>
+                  </td>
+                  <td class="text-center">
+                    <a class="btn btn-sm btn-alt-secondary" href="order.php" data-bs-toggle="tooltip" title="View">
+                      <i class="fa fa-fw fa-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">
+                      <strong>ORD.00962</strong>
+                    </a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-center fs-sm">26/07/2020</td>
+                  <td>
+                    <span>Processing</span>
+                  </td>
+                  <td class="d-none d-xl-table-cell text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">1</a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-end fs-sm">
+                    <strong>$1607,43</strong>
+                  </td>
+                  <td class="text-center">
+                    <a class="btn btn-sm btn-alt-secondary" href="order.php" data-bs-toggle="tooltip" title="View">
+                      <i class="fa fa-fw fa-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">
+                      <strong>ORD.00961</strong>
+                    </a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-center fs-sm">03/04/2020</td>
+                  <td>
+                    <span>Delivered</span>
+                  </td>
+                  <td class="d-none d-xl-table-cell text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">9</a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-end fs-sm">
+                    <strong>$2262,75</strong>
+                  </td>
+                  <td class="text-center">
+                    <a class="btn btn-sm btn-alt-secondary" href="order.php" data-bs-toggle="tooltip" title="View">
+                      <i class="fa fa-fw fa-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">
+                      <strong>ORD.00947</strong>
+                    </a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-center fs-sm">14/12/2020</td>
+                  <td>
+                    <span>Out For Delivery</span>
+                  </td>
+                  <td class="d-none d-xl-table-cell text-center fs-sm">
+                    <a class="fw-semibold" href="order.php">9</a>
+                  </td>
+                  <td class="d-none d-sm-table-cell text-end fs-sm">
+                    <strong>$1857,19</strong>
+                  </td>
+                  <td class="text-center">
+                    <a class="btn btn-sm btn-alt-secondary" href="order.php" data-bs-toggle="tooltip" title="View">
+                      <i class="fa fa-fw fa-eye"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- END All Orders Table -->
+
+          <!-- Pagination -->
+          <nav aria-label="Photos Search Navigation">
+            <ul class="pagination pagination-sm justify-content-end mt-2">
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)" tabindex="-1" aria-label="Previous">
+                  Prev
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="javascript:void(0)">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="javascript:void(0)" aria-label="Next">
+                  Next
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- END Pagination -->
+        </div>
+      </div>
+      <!-- END All Orders -->
+      <a href="../profile.php" class="btn btn-light w-100 mt-2 order">Go Back</a>
+
+
+
+    </div>
+  </div>
+</body>
+
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; 2022 Luminary</p>
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="#">Privacy</a></li>
+    <li class="list-inline-item"><a href="#">Terms</a></li>
+    <li class="list-inline-item"><a href="#">Support</a></li>
+  </ul>
+</footer>
+
+</html>
