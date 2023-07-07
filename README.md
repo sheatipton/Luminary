@@ -5,8 +5,7 @@ An online bookstore created for book lovers who dream of an enchanting shopping 
 
 - [Description](#description)
 - [Features](#features)
-- [Installation & Usage](#installation & usage)
-- [Usage](#usage)
+- [Installation](#installation)
 - [Resources](#resources)
 - [Images](#images)
 
