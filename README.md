@@ -15,17 +15,17 @@ Luminary is a full stack e-commerce bookstore that achieves an aesthetic and smo
 ## Features
 Luminary provides a unique interface and experience for customers, authors, and site admin. 
 
-* customers 
+* **customers** 
      * browse books by search or category
      * save books to the shopping cart or wishlist
      * purchase cart items online or reserve for an in-store purchase
 
-* authors
+* **authors**
      * enjoy a traditional customer experience
      * add, update, or delete their own products
      * view crucial information like order statistics and low stock warnings
 
-* site admin
+* **site admin**
      * access all features   
      * add, update, or delete user accounts, orders, or products
      * view site revenue charts
@@ -47,6 +47,9 @@ To run Luminary locally on your machine:
 6. Configuration: Open the luminary/setup/db.connect.php file and update the database credentials (host, username, password) to match your local setup.
 
 7. Access Luminary: Open a web browser and visit http://localhost/luminary to access the website.
+
+## Tools
+PHP, Javascript, MySQL, HTML, CSS
 
 ## Resources
 Bootstrap, StackOverflow, W3Schools, TutorialsPoint
