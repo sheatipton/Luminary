@@ -1,6 +1,7 @@
 body {
   font-family: 'Anek Tamil', sans-serif;
   background-color: #F9F8EB;
+  margin: 0
 }
 /* footer */
 .bi {
@@ -75,7 +76,7 @@ a:hover {
   text-align: center;
 }
 
-/* .cartbadge {
+/* .bagbadge {
   color: black;
   margin-left: 0.5rem;
   border-radius: 10px 100px / 120px;

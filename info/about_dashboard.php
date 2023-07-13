@@ -26,60 +26,36 @@
         <div class="flex-grow-1">
           <div style="text-align:center">
             <span class="h3 fw-bold mb-2" style="font-size: 55px; padding-right: 150px">
-              About
+              About Dashboard
             </span>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
   <!-- Cards -->
   <div class="card-deck" style="font-size: 28px; height: 60%; width: 130rem; padding-left: 125px">
-    <div class="card">
+      <!-- Author Dashboard -->
+  <div class="card">
       <div class="card-block" style="padding: 30px 30px 30px 30px">
-        <h4 class="card-title" style="font-size: 28px">How It Works</h4>
+        <h4 class="card-title" style="font-size: 28px">Author Accounts</h4>
         <p class="card-text">
-        Luminary uses
-        <p style="padding-left: 10px">
-          <b>HTML, CSS, MySQL, PHP, Javascript</b>
-        </p>
-        Resources
-        <p style="padding-left: 10px; padding-top: 10px">
-          <b>Bootstrap, StackOverflow, W3Schools, TutorialsPoint</b>
-        </p><br>
-        Disclaimer:<br>
-        Luminary is a fictional online bookstore. Any materials that portray similarities to any real e-commerce store are purely coincidental.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-block" style="padding: 30px 30px 30px 30px">
-        <h4 class="card-title" style="font-size: 28px">Contributions</h4>
-        <p class="card-text">
-          <br>Note:</b><br>
-          Significant modifications have been made by me to produce the current version of <b>Luminary.</b>
-          <br><br><b>Luminary 2.0</b> would not have been possible without original contributions by:
-          <br><br><b>Christine Zhu</b><br>
-          &nbsp;implemented Bootstrap stylesheets<br>
-          &nbsp;contributed to UI design
-          <br><br><b>Fernanda Bonilla</b><br>
-          &nbsp;implemented various checkout functions<br>&nbsp;contributed to data research
+          By signing up for a free <a href="../login/author.php" style="color:#89A3B2">author account</a>, you can access
+          &nbsp;additional features:<br>
+          &nbsp;add, edit, or delete products<br>&nbsp;view crucial information like order statistics and low inventory notices
         </p>
       </div>
     </div>
 
+  <!-- Admin Dashboard -->
     <div class="card" style="align-items: center">
-      <img class="card-img-top" src="../images/My_Headshot.JPG" style="width: 350px">
       <div class="card-block" style="padding: 30px 30px 30px 30px">
-        <h4 class="card-title" style="font-size: 28px">About Me - Shea Tipton</h4>
+        <h4 class="card-title" style="font-size: 28px">Admin Accounts</h4>
         <p class="card-text">
-          <i class="bi bi-pc-display"></i>&nbsp;B.S. Computer Science
-          <br><i class="bi bi-mortarboard-fill"></i>&nbsp;University of Georgia Alumni 2023
-          <br><i class="bi bi-geo-alt-fill"></i>&nbsp;Atlanta, Georgia
-          <br><br>Experienced with:<br>
-          Full-stack web development<br>iOS app development
+         As an admin, you can access the complete set of features the site has to offer:<br>
+         &nbsp;add, update, or delete products, orders, or user accounts<br>
+         &nbsp;view Luminary's revenue charts
         </p>
 
       </div>

@@ -227,7 +227,7 @@ $rows = mysqli_num_rows($result);
                         if ($type[$i] == 0) {
                           $type[$i] = "Administrator";
                         } else if ($type[$i] == 1) {
-                          $type[$i] = "Vendor";
+                          $type[$i] = "author";
                         } else if ($type[$i] == 2) {
                           $type[$i] = "Customer";
                         }

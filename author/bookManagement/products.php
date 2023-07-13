@@ -83,7 +83,7 @@ function processSearch() {
             <button type="button" class="btn btn-sm btn-alt-secondary me-2 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
               <i class="bi bi-list"></i>
             </button>
-            <span class="d-none d-sm-inline-block ms-2">Luminary - Vendor Book Management</span>
+            <span class="d-none d-sm-inline-block ms-2">Luminary - author Book Management</span>
           </div>
           <!-- END Left Section -->
 
@@ -92,12 +92,12 @@ function processSearch() {
             <!-- User Dropdown -->
             <div class="dropdown d-inline-block ms-2">
               <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="d-none d-sm-inline-block ms-2" style="margin-right:10px;">Vendor</span>
+                <span class="d-none d-sm-inline-block ms-2" style="margin-right:10px;">author</span>
                 <i class="bi bi-person-square"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
                 <div class="p-3 text-center bg-body-light border-bottom rounded-top">
-                  <p class="mt-2 mb-0 fw-medium">Vendor Name</p>
+                  <p class="mt-2 mb-0 fw-medium">author Name</p>
                   <p class="mb-0 text-muted fs-sm fw-medium">Position</p>
                 </div>
                 <div class="p-2">

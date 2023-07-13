@@ -152,16 +152,16 @@ if ($_GET['delete'] == true) {
             <!-- User Dropdown -->
             <div class="dropdown d-inline-block ms-2">
               <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="d-none d-sm-inline-block ms-2" style="margin-right:10px;">Vendor</span>
+                <span class="d-none d-sm-inline-block ms-2" style="margin-right:10px;">author</span>
                 <i class="bi bi-person-square"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
                 <div class="p-3 text-center bg-body-light border-bottom rounded-top">
-                  <p class="mt-2 mb-0 fw-medium">Vendor Name</p>
+                  <p class="mt-2 mb-0 fw-medium">author Name</p>
                   <p class="mb-0 text-muted fs-sm fw-medium">Position</p>
                 </div>
                 <div class="p-2">
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../info/profile.php">
+                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../login/profile.php">
                     <span class="fs-sm fw-medium">Profile</span>
                     <span class="badge rounded-pill bg-primary ms-2">1</span>
                   </a>

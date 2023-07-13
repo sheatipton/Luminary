@@ -22145,11 +22145,11 @@ readers do not read off random characters that represent icons */
   content: "\f787";
 }
 
-.fa-cart-arrow-down::before {
+.fa-bag-arrow-down::before {
   content: "\f218";
 }
 
-.fa-cart-flatbed::before {
+.fa-bag-flatbed::before {
   content: "\f474";
 }
 
@@ -22157,23 +22157,23 @@ readers do not read off random characters that represent icons */
   content: "\f474";
 }
 
-.fa-cart-flatbed-suitcase::before {
+.fa-bag-flatbed-suitcase::before {
   content: "\f59d";
 }
 
-.fa-luggage-cart::before {
+.fa-luggage-bag::before {
   content: "\f59d";
 }
 
-.fa-cart-plus::before {
+.fa-bag-plus::before {
   content: "\f217";
 }
 
-.fa-cart-shopping::before {
+.fa-bag-shopping::before {
   content: "\f07a";
 }
 
-.fa-shopping-cart::before {
+.fa-shopping-bag::before {
   content: "\f07a";
 }
 
@@ -28897,7 +28897,7 @@ readers do not read off random characters that represent icons */
   content: "\f510";
 }
 
-.fa-opencart:before {
+.fa-openbag:before {
   content: "\f23d";
 }
 

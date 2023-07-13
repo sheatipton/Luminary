@@ -108,29 +108,29 @@
 @import 'oneui/helpers';
 
 // Core third party components
-@import 'vendor/animate';
-@import 'vendor/fontawesome/fontawesome';
-@import 'vendor/fontawesome/regular';
-@import 'vendor/fontawesome/solid';
-@import 'vendor/fontawesome/brands';
-@import 'vendor/simple-line-icons';
-@import 'vendor/simplebar';
+@import 'author/animate';
+@import 'author/fontawesome/fontawesome';
+@import 'author/fontawesome/regular';
+@import 'author/fontawesome/solid';
+@import 'author/fontawesome/brands';
+@import 'author/simple-line-icons';
+@import 'author/simplebar';
 
 // Optional third party plugins (style overrides)
-@import 'vendor/bootstrap-colorpicker';
-@import 'vendor/bootstrap-datepicker';
-@import 'vendor/ckeditor';
-@import 'vendor/dropzone';
-@import 'vendor/datatables';
-@import 'vendor/easy-pie-chart';
-@import 'vendor/fullcalendar';
-@import 'vendor/ion-range-slider';
-@import 'vendor/jquery-sparkline';
-@import 'vendor/jvector-map';
-@import 'vendor/select2';
-@import 'vendor/simplemde';
-@import 'vendor/slick';
-@import 'vendor/flatpickr';
+@import 'author/bootstrap-colorpicker';
+@import 'author/bootstrap-datepicker';
+@import 'author/ckeditor';
+@import 'author/dropzone';
+@import 'author/datatables';
+@import 'author/easy-pie-chart';
+@import 'author/fullcalendar';
+@import 'author/ion-range-slider';
+@import 'author/jquery-sparkline';
+@import 'author/jvector-map';
+@import 'author/select2';
+@import 'author/simplemde';
+@import 'author/slick';
+@import 'author/flatpickr';
 
 // RTL Support
 @import 'oneui/rtl-support';

@@ -1807,7 +1807,7 @@ function getNearestRadialItems(chart, position, axis, useFinalPosition) {
   optimizedEvaluateItems(chart, axis, position, evaluationFunc);
   return items;
 }
-function getNearestCartesianItems(chart, position, axis, intersect, useFinalPosition) {
+function getNearestbagesianItems(chart, position, axis, intersect, useFinalPosition) {
   let items = [];
   const distanceMetric = getDistanceMetricForAxis(axis);
   let minDistance = Number.POSITIVE_INFINITY;
@@ -1838,7 +1838,7 @@ function getNearestItems(chart, position, axis, intersect, useFinalPosition) {
   }
   return axis === 'r' && !intersect
     ? getNearestRadialItems(chart, position, axis, useFinalPosition)
-    : getNearestCartesianItems(chart, position, axis, intersect, useFinalPosition);
+    : getNearestbagesianItems(chart, position, axis, intersect, useFinalPosition);
 }
 function getAxisItems(chart, e, options, useFinalPosition) {
   const position = getRelativePosition(e, chart);

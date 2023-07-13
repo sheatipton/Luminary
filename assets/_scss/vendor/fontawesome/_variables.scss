@@ -341,14 +341,14 @@ $fa-var-caret-left: \f0d9;
 $fa-var-caret-right: \f0da;
 $fa-var-caret-up: \f0d8;
 $fa-var-carrot: \f787;
-$fa-var-cart-arrow-down: \f218;
-$fa-var-cart-flatbed: \f474;
+$fa-var-bag-arrow-down: \f218;
+$fa-var-bag-flatbed: \f474;
 $fa-var-dolly-flatbed: \f474;
-$fa-var-cart-flatbed-suitcase: \f59d;
-$fa-var-luggage-cart: \f59d;
-$fa-var-cart-plus: \f217;
-$fa-var-cart-shopping: \f07a;
-$fa-var-shopping-cart: \f07a;
+$fa-var-bag-flatbed-suitcase: \f59d;
+$fa-var-luggage-bag: \f59d;
+$fa-var-bag-plus: \f217;
+$fa-var-bag-shopping: \f07a;
+$fa-var-shopping-bag: \f07a;
 $fa-var-cash-register: \f788;
 $fa-var-cat: \f6be;
 $fa-var-cedi-sign: \e0df;
@@ -2007,7 +2007,7 @@ $fa-var-octopus-deploy: \e082;
 $fa-var-odnoklassniki: \f263;
 $fa-var-odnoklassniki-square: \f264;
 $fa-var-old-republic: \f510;
-$fa-var-opencart: \f23d;
+$fa-var-openbag: \f23d;
 $fa-var-openid: \f19b;
 $fa-var-opera: \f26a;
 $fa-var-optin-monster: \f23c;
@@ -2482,14 +2482,14 @@ $fa-icons: (
   "caret-right": $fa-var-caret-right,
   "caret-up": $fa-var-caret-up,
   "carrot": $fa-var-carrot,
-  "cart-arrow-down": $fa-var-cart-arrow-down,
-  "cart-flatbed": $fa-var-cart-flatbed,
+  "bag-arrow-down": $fa-var-bag-arrow-down,
+  "bag-flatbed": $fa-var-bag-flatbed,
   "dolly-flatbed": $fa-var-dolly-flatbed,
-  "cart-flatbed-suitcase": $fa-var-cart-flatbed-suitcase,
-  "luggage-cart": $fa-var-luggage-cart,
-  "cart-plus": $fa-var-cart-plus,
-  "cart-shopping": $fa-var-cart-shopping,
-  "shopping-cart": $fa-var-shopping-cart,
+  "bag-flatbed-suitcase": $fa-var-bag-flatbed-suitcase,
+  "luggage-bag": $fa-var-luggage-bag,
+  "bag-plus": $fa-var-bag-plus,
+  "bag-shopping": $fa-var-bag-shopping,
+  "shopping-bag": $fa-var-shopping-bag,
   "cash-register": $fa-var-cash-register,
   "cat": $fa-var-cat,
   "cedi-sign": $fa-var-cedi-sign,
@@ -4150,7 +4150,7 @@ $fa-brand-icons: (
   "odnoklassniki": $fa-var-odnoklassniki,
   "odnoklassniki-square": $fa-var-odnoklassniki-square,
   "old-republic": $fa-var-old-republic,
-  "opencart": $fa-var-opencart,
+  "openbag": $fa-var-openbag,
   "openid": $fa-var-openid,
   "opera": $fa-var-opera,
   "optin-monster": $fa-var-optin-monster,

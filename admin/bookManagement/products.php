@@ -260,7 +260,7 @@ function processSearch() {
                 <table class="table table-borderless table-striped table-vcenter">
                   <thead>
                     <tr>
-                      <th class="text-center" style="width: 100px;">Vendor ID</th>
+                      <th class="text-center" style="width: 100px;">author ID</th>
                       <th class="d-none d-md-table-cell">Book Title</th>
                       <th class="d-none d-sm-table-cell text-center">ISBN</th>
                       <th>Status</th>

@@ -105,7 +105,7 @@ $rows = mysqli_num_rows($result);
                     <p class="mb-0 text-muted fs-sm fw-medium">Position</p>
                   </div>
                   <div class="p-2">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../info/profile.php">
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../login/profile.php">
                       <span class="fs-sm fw-medium">Profile</span>
                       <span class="badge rounded-pill bg-default-light ms-2">1</span>
                     </a>

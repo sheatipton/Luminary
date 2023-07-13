@@ -5,33 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <title>Luminary - FAQ</title>
-
-  <meta name="description"
-    content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-  <meta name="author" content="pixelcave">
-  <meta name="robots" content="noindex, nofollow">
-
-  <!-- Open Graph Meta -->
-  <meta property="og:title" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework">
-  <meta property="og:site_name" content="OneUI">
-  <meta property="og:description"
-    content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="icon" href="../favicon_io/favicon.ico">
+  <link rel="stylesheet" href="style/index.css">
+  <title>FAQ</title>
 
   <!-- Icons -->
-  <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-  <link rel="shortcut icon" href="favicon_io\favicon.ico">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon_io\android-chrome-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io\android-chrome-192x192.png">
+  <link rel="shortcut icon" href="../favicon_io\favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon_io\android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io\android-chrome-192x192.png">
   <!-- END Icons -->
 
   <!-- Stylesheets -->
-  <!-- Fonts and OneUI framework -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" id="css-main" href="assets/css/oneui.min.css">
+  <link rel="stylesheet" id="css-main" href="../assets/css/oneui.min.css">
 </head>
 
 <body style="background-color: #F2F4D1;">
@@ -43,25 +33,15 @@
       <div class="bg-body-light">
         <div class="content content-full">
           <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
-            <span><a href="index.php">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                  class="bi bi-house-fill" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                  <path fill-rule="evenodd"
-                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                </svg>
-              </a></span>
+          <a href="../index.php" style="padding-top: 22px; padding-left: 20px; font-size: 24px;" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <i class="bi bi-arrow-left"></i>&nbsp; Back to Home</a>
 
             <div class="flex-grow-1">
-
-              <div style="text-align:center">
+              <div style="text-align:center; font-size: 55px">
                 <span class="h3 fw-bold mb-2">
-                  Luminary - FAQ
+                  Frequently Asked Questions
                 </span>
-                <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-                  Check out answers to the most common questions.
-                </h2>
+                
               </div>
               <div></div>
             </div>
@@ -71,33 +51,32 @@
       <!-- END Hero -->
 
       <!-- Page Content -->
-      <div class="content content-boxed">
+      <div class="content content-boxed" style="font-size: 22px">
         <!-- Frequently Asked Questions -->
         <div class="block block-rounded">
           <div class="block-content block-content-full">
             <div class="p-sm-4 p-xl-7">
               <!-- Introduction -->
-              <h2 class="h3"><strong>1.</strong> Introduction</h2>
+              <h2 class="h3"><strong>1.</strong>Introduction</h2>
               <div id="faq1" class="mb-5" role="tablist" aria-multiselectable="true">
                 <div class="block block-rounded block-bordered overflow-hidden mb-1">
                   <div class="block-header block-header-default" role="tab" id="faq1_h1">
                     <a class="text-muted" data-bs-toggle="collapse" data-bs-parent="#faq1" href="#faq1_q1"
-                      aria-expanded="true" aria-controls="faq1_q1">Thanks for shopping with Luminary! Find help navigating our site here</a>
+                      aria-expanded="true" aria-controls="faq1_q1">Thank you for shopping with Luminary! Find help navigating our site here</a>
                   </div>
                   <div id="faq1_q1" class="collapse show" role="tabpanel" aria-labelledby="faq1_h1"
                     data-bs-parent="#faq1">
                     <div class="block-content">
 
                       <p>For signed-out guests</p>
-                      <a href="./index.php">Browse our homepage</a><br>
-                      <a href="./index.php#categories">Browse books</a><br>
-                      <a href="./login/login.php">Login to your free account</a><br>
-                      <a href="./login/register.php">Sign up for a free account</a><br>
-                      <a href="./login/publisher.php">Sign up for a free vendor account</a><br><br>
+                      <a href="../index.php">Browse our homepage</a><br>
+                      <a href="../login/login.php">Login to your free account</a><br>
+                      <a href="../login/register.php">Sign up for a free account</a><br>
+                      <a href="../login/author.php">Sign up for a free author account</a><br><br>
 
                       <p>For members with an account</p>
-                      <a href="./profile.php">View your profile</a><br>
-                      <a href="./cart/shoppingbag.php">View your shopping cart</a><br><br>
+                      <a href="../login/profile.php">View your profile</a><br>
+                      <a href="../bag/shoppingbag.php">View your shopping bag</a><br><br>
                     </div>
                   </div>
                 </div>
@@ -108,7 +87,7 @@
                   </div>
                   <div id="faq1_q2" class="collapse" role="tabpanel" aria-labelledby="faq1_h2" data-bs-parent="#faq1">
                     <div class="block-content">
-                      <a href="./info/about_us.php">View the about us page</a><br><br>
+                      <a href="./info/info/about_us.php">View the about us page</a><br><br>
                     </div>
                   </div>
                 </div>
@@ -132,13 +111,13 @@
                 <div class="block block-rounded block-bordered overflow-hidden mb-1">
                   <div class="block-header block-header-default" role="tab" id="faq2_h1">
                     <a class="text-muted" data-bs-toggle="collapse" data-bs-parent="#faq2" href="#faq2_q1"
-                      aria-expanded="true" aria-controls="faq2_q1">What is a vendor account?</a>
+                      aria-expanded="true" aria-controls="faq2_q1">What is an Author account?</a>
                   </div>
                   <div id="faq2_q1" class="collapse" role="tabpanel" aria-labelledby="faq2_h1" data-bs-parent="#faq2">
                     <div class="block-content">
                       <p>Luminary features a large assortment of books available for online purchase and in-store purchase.
-                        Luminary allows anyone to sign up for a free <a href="./login/publisher.php">Vendor Account</a>. Vendors are able to
-                      add, update, and remove books. Vendors have access to end of day sales reports and inventory notice reports.</p>
+                        Luminary allows anyone to sign up for a free <a href="./login/author.php">author Account</a>. authors are able to
+                      add, update, and remove books. authors have access to end of day sales reports and inventory notice reports.</p>
                     </div>
                   </div>
                 </div>

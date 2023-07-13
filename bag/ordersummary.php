@@ -25,20 +25,8 @@ if (array_key_exists('shipping', $_GET)) {
   }
 }
 
-/*
-if (array_key_exists('update', $_GET)) {
-  if ($_GET['quantity'] == '1') {
-    $total += $row['quantity'] * $row['price'];
-  }
-  if ($_GET['quantity'] == '2') {
-    $quantity = $quantity + 1;
-    $total += $row['quantity'] * $row['price'];
-  }
-}
-*/
-
-$cart = "SELECT * FROM Cart INNER JOIN Books ON Cart.isbn = Books.isbn WHERE Cart.user_id = $user_id";
-$result = $mysqli->query($cart);
+$bag = "SELECT * FROM bag INNER JOIN Books ON bag.isbn = Books.isbn WHERE bag.user_id = $user_id";
+$result = $mysqli->query($bag);
 
 $total = 0;
 while ($row = mysqli_fetch_assoc($result)) {
@@ -46,9 +34,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 ?>
-
-<div class="p-3 bg-light bg-opacity-10">
-  <h6 class="card-title mb-3">Order Summary</h6>
+<div class="p-3 bg-light bg-opacity-10" style="font-size: 28px">
+  <h3 class="card-title mb-3">Order Summary</h3>
   <div class="d-flex justify-content-between mb-1 small">
     <span>Subtotal</span> <span>$<?= $total ?></span>
   </div>

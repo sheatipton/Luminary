@@ -1,29 +1,37 @@
 <?php
 require_once "../setup/db.connect.php";
 
-// Check if logged in, retrieve data if true
 $loggedIn = false;
 if (isset($_COOKIE["user_id"])) {
-  $loggedIn = true;
-  $user_id = $mysqli->query("SELECT user_id FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
-  $user_id = $user_id->fetch_object()->user_id;
   $bagNumber = $mysqli->query("SELECT * FROM bag WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $bagNumber = mysqli_num_rows($bagNumber);
+  $user_id = $mysqli->query("SELECT user_id FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $user_id = $user_id->fetch_object()->user_id;
+  $name = $mysqli->query("SELECT name FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $name = $name->fetch_object()->name;
+  $email = $mysqli->query("SELECT email FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $email = $email->fetch_object()->email;
+  $address = $mysqli->query("SELECT address FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $address = $address->fetch_object()->address;
+  $city = $mysqli->query("SELECT city FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $city = $city->fetch_object()->city;
+  $state = $mysqli->query("SELECT state FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $state = $state->fetch_object()->state;
+  $zip = $mysqli->query("SELECT zip FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $zip = $zip->fetch_object()->zip;
+  $dob = $mysqli->query("SELECT dob FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $dob = $dob->fetch_object()->dob;
+  $loggedIn = true;
+} else {
+  $loggedIn = false;
 }
 ?>
-
-<script>
-  function processSearch() {
-  var searchValue = document.getElementById('thesearch').value;
-	window.location.href = "./search.php?thesearch=" + searchValue;
-}
-</script>
 
 <!doctype html>
 <html lang="en">
 
 <head>
-  
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,12 +41,12 @@ if (isset($_COOKIE["user_id"])) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="icon" href="../favicon_io/favicon.ico">
   <link rel="stylesheet" href="../style/index.css">
-  <title>Nonfiction</title>
+  <title>Payment</title>
 </head>
 
 <body>
-<!--  Top Bar - Promo Code -->
-<div class="topbar" style="height: 50px">
+  <!--  Top Bar - Promo Code -->
+  <div class="topbar" style="height: 50px">
     <p class="offer" style="font-size: 20px">Welcome to Luminary! USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
   </div>
 
@@ -95,97 +103,103 @@ if (isset($_COOKIE["user_id"])) {
     <header class="border-bottom">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px" href="./bestsellers.php">Bestsellers</a>
+          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/bestsellers.php">Bestsellers</a>
+        </li>
+        <p style="font-size: 25px; opacity: 0.3">|</p>
+        <a class="nav-link" style="color:black; font-size:22px;" href="../browse/new_releases.php">New In</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
-        <a class="nav-link" style="color:black; font-size:22px;" href="./new_releases.php">New In</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="./collections.php">Collections</a>
+          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/fiction.php">Fiction</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="./fiction.php">Fiction</a>
+          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/nonfiction.php">Nonfiction</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="./nonfiction.php">Nonfiction</a>
+          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/classics.php">Classics</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
-        <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="./classics.php">Classics</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="./all_books.php">Browse All</a>
+        <a class="nav-link" style="color:black; font-size:22px;" href="../browse/all_books.php">Browse All</a>
         </li>
       </ul>
     </header>
     <br><br>
   </div>
 
-  <!-- Title Banner -->
+  <!--  Title Banner -->
   <div class="container banner" style="position: relative; text-align: center; margin-bottom: 3rem;">
-    <h2 style="font-size: 45px">Nonfiction</h2>
-    <p style="font-size: 22px">Memoirs, biographies, business, and more.</p>
+    <h2 style="font-size: 45px">Payment</h2>
   </div>
 
-  <div class="container-fluid" style="padding-left: 200px">
+  <div class="container" style="font-size: 26px">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="accordion" id="accordionPayment">
+          <div class="accordion-item mb-3 border" style="padding: 0.6rem;">
+            <h2 class="h5 px-4 py-3 accordion-header d-flex justify-content-between align-items-center">
 
-    <!-- adding to bag -->
-    <?php
-    if (isset($_POST["submit"])) {
-      if ($loggedIn == true) {
-        $isbn = $_POST['get_id'];
-        $addTobagSql = "INSERT INTO bag (user_id, isbn, quantity) VALUES ('" . $user_id . "', '" . $isbn . "', 1)";
-        $mysqli->query($addTobagSql);
-        echo ("<meta http-equiv='refresh' content='0'>");
-      } else {
-        header("Location: ../login/login.php");
-      }
-    }
+            </h2>
+            <div id="collapseCC" class="accordion-collapse collapse show" data-bs-parent="#accordionPayment" style="">
+              <div class="accordion-body">
+                <div class="mb-3">
+                  <label class="form-label">Card Number</label>
+                  <input type="text" class="form-control" placeholder="#### #### #### ####">
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">Name on Card</label>
+                      <input type="text" class="form-control" value="<?= $name ?>" placeholder="Full Name">
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="mb-3">
+                      <label class="form-label">Expiration Date</label>
+                      <input type="text" class="form-control" placeholder="MM/YY">
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="mb-3">
+                      <label class="form-label">CVV Code</label>
+                      <input type="password" class="form-control" placeholder="###">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    // display books
-    $sql = "SELECT * FROM Books WHERE subject = 'Nonfiction'";
-    $result = $mysqli->query($sql);
-    $rows = mysqli_num_rows($result);
+          <div class="accordion-item mb-3 border">
+            <div id="collapsePP" class="accordion-collapse collapse" data-bs-parent="#accordionPayment" style="">
+              <div class="accordion-body">
+                <div class="px-2 col-lg-6 mb-3">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    $i = 1;
-    while ($row = mysqli_fetch_assoc($result)) {
-      $isbn[$i] = $row['isbn'];
-      $image[$i] = "../";
-      $image[$i] .= $row['image'];
-      $title[$i] = $row['title'];
-      $price[$i] = $row['price'];
-      $i++;
-    }
-    $newrow = 1;
+        <div class="col-md-2" style="padding: 20px 0px 70px">
+          <a href="./checkout.php"><button class="btn btn-light" style="background-color: #74B49B; color: white; width: 250px; font-size: 26px" type="submit">Back to Checkout</button></a>
+        </div>
+      </div>
 
-    for ($i = 1; $i <= count($title); $i++) {
-      echo
-     "<div class='book' style='display: table-cell; text-align: center; padding-left: 80px; padding-bottom: 20px;'>
-      <img style='padding-bottom: 24px;' src=" . $image[$i] . " width='260'>
-            <form method='post'>
-            <button style='color: #F9F8EB; background-color: #5C8D89; height: 4rem; width: 4rem' class='btn btn-light' type='submit' name='submit'>
-            <i class='bi bi-bag-plus' style='font-size: 40px'></i>
-            </button>&nbsp;&nbsp;&nbsp;
-              <a href='./book_info.php?isbn=" . $isbn[$i] . "' style='color: #F9F8EB; background-color: #5C8D89; height: 4rem; width: 4rem' class='btn btn-light'><i class='bi bi-info-circle' style='padding-left: 1px; font-size: 40px'></i></button>
-            </a>
-            <input type='hidden' value=" . $isbn[$i] . " name='get_id'/>
-            </form>
-            </div>";
-
-      if ($newrow == 5) {
-        $newrow = 0;
-        echo "<br><br>";
-      }
-      $newrow++;
-    }
-    ?>
+      <!-- Right -->
+      <div class="col-lg-3">
+        <div class="card position-sticky top-0">
+          <div class="p-3 bg-light bg-opacity-10">
+            <?php include 'ordersummary.php'; ?>
+          <a href="./orderSuccess.php?shipping=<?= $_GET['shipping'] ?>&promo=<?= $_GET['promo'] ?>"><button class="btn btn-light" style="background-color: #74B49B; color: white; width: 14rem; font-size: 30px" type="submit">Place Order</button></a>
+        </div>
+          </div>
+      </div>
+    </div>
   </div>
-
-  <!-- Resources -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </div>
 </body>
 
 <!-- Footer -->
@@ -195,12 +209,12 @@ if (isset($_COOKIE["user_id"])) {
       <div class="col-2">
         <h5>BROWSE CATEGORIES</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-          <li class="nav-item mb-2"><a href="./browse/new_releases.php" class="nav-link p-0 text-muted">New In</a></li>
-          <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
-          <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
+          <li class="nav-item mb-2"><a href="../browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
+          <li class="nav-item mb-2"><a href="../browse/new_releases.php" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="../browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
+          <li class="nav-item mb-2"><a href="../browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
+          <li class="nav-item mb-2"><a href="../browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
+          <li class="nav-item mb-2"><a href="../browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
         </ul>
       </div>
 
@@ -232,5 +246,7 @@ if (isset($_COOKIE["user_id"])) {
       <p>&copy; Luminary, Inc. 2022. All rights reserved.</p>
     </div>
   </footer>
+
+
 
 </html>

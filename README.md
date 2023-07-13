@@ -12,6 +12,7 @@ An online bookstore created for book lovers who dream of an enchanting shopping 
 ## Description
 Luminary is a full stack e-commerce bookstore that achieves an aesthetic and smooth user experience for three distinct user types.
 
+<<<<<<< Updated upstream
 ## Features
 Luminary provides a unique interface and experience for customers, authors, and site admin. 
 
@@ -23,6 +24,14 @@ Luminary provides a unique interface and experience for customers, authors, and 
 * **authors**
      * enjoy a traditional customer experience
      * add, update, or delete their own products
+=======
+* customers 
+     * browse and add books to the shopping bag
+     * purchase bag items online or reserve for in-store purchase
+
+* authors
+     * add, update, or delete products
+>>>>>>> Stashed changes
      * view crucial information like order statistics and low stock warnings
 
 * **site admin**

@@ -48,7 +48,7 @@ CREATE TABLE `Books` (
 INSERT INTO `Books` (`user_id`, `isbn`, `title`, `author`, `subject`, `category`, `price`, `image`, `description`, `stock`, `lowStock`) VALUES
 (0, 1849137301, 'A Tale of Two Cities', 'Charles Dickens', 'Fiction', 'Classic', '11.99', 'book_covers/tale.jpg', 'The novel tells the story of the French Doctor Manette, his 18-year-long imprisonment in the Bastille in Paris, and his release to live in London with his daughter Lucie whom he had never met. The story is set against the conditions that led up to the French Revolution and the Reign of Terror.', 20, 1),
 (1, 1849137302, 'A Walk to Remember', 'Nicholas Sparks', 'Fiction', 'New', '15.99', 'book_covers/walk.jpg', 'Set in a small town during the 1950s, A Walk to Remember is the story of an only son of a wealthy family that finds true love with the most unexpected person. The daughter of a minister (Mandy Moore) meets the only son (Shane West) and the story takes us through hard times, love and bitter sweet passion.', 20, 0),
-(0, 1849137303, 'American Dirt', 'Jeanine Cummins', 'Nonfiction', 'Bestseller', '17.99', 'book_covers/american.jpg', 'Lydia lives in Acapulco. She has a son, Luca, the love of her life, and a wonderful husband who is a journalist. And while cracks are beginning to show in Acapulco because of the cartels, the life of Lydia is, by and large, fairly comfortable. But after the husbands tell-all profile of the newest drug lord is published, none of their lives will ever be the same.', 20, 0),
+(0, 1849137303, 'American Dirt', 'Jeanine Cummins', 'Nonfiction', 'Bestseller', '17.99', 'book_covers/american.jpg', 'Lydia lives in Acapulco. She has a son, Luca, the love of her life, and a wonderful husband who is a journalist. And while cracks are beginning to show in Acapulco because of the bagels, the life of Lydia is, by and large, fairly comfortable. But after the husbands tell-all profile of the newest drug lord is published, none of their lives will ever be the same.', 20, 0),
 (0, 1849137304, 'An Ordinary Age', 'Rainesford Stauffer', 'Nonfiction', 'Regular', '11.99', 'book_covers/age.jpg', 'From chronic burnout to the loneliness epidemic to the strictures of social media, An Ordinary Age leads with empathy in exploring the myriad challenges facing young adults, while also advocating for a better path forward: one where young people can live authentic lives filled with love, community, and self-knowledge.\r\n', 20, 0),
 (0, 1849137305, 'Apples Never Fall', 'Liane Moriarty', 'Fiction', 'Regular', '28.99', 'book_covers/apples.jpg', 'Apples Never Fall follows the four Delaney siblings after the disappearance of their mother, Joy Delaney. The police soon identify their father, Stan, as a possible person of interest in her case. As they try to unravel the mystery of what happened to her or where she went, the four siblings -- Troy, Brooke, Logan and Amy -- are forced to confront truths about their relationships with each other, with their significant others, with their parents and about their parents marriage.\r\n', 20, 0),
 (0, 1849137306, 'Bleak House', 'Charles Dickens', 'Fiction', 'Regular', '19.99', 'book_covers/bleak.jpg', 'Bleak House is the story of the Jarndyce family, who wait in vain to inherit money from a disputed fortune in the settlement of the extremely long-running lawsuit of Jarndyce and Jarndyce.', 20, 0),
@@ -78,7 +78,7 @@ INSERT INTO `Books` (`user_id`, `isbn`, `title`, `author`, `subject`, `category`
 (0, 1849137330, 'The Four Winds', 'Kristin Hannah', 'Fiction', '28.99', '0.00', 'book_covers/winds.jpg', 'Millions are out of work and a drought has broken the Great Plains. Farmers are fighting to keep their land and their livelihoods as the crops are failing, the water is drying up, and dust threatens to bury them all. One of the darkest periods of the Great Depression, the Dust Bowl era, has arrived with a vengeance. In this uncertain and dangerous time, Elsa Martinelli—like so many of her neighbors—must make an agonizing choice: fight for the land she loves or go west, to California, in search of a better life. The Four Winds is an indelible portrait of America and the American Dream, as seen through the eyes of one indomitable woman whose courage and sacrifice will come to define a generation.', 20, 0),
 (0, 1849137331, 'The Glass Hotel', 'Emily St.John Mandel', 'Fiction', 'Bestseller', '16.99', 'book_covers/glass.jpg', 'Vincent is a bartender at the Hotel Caiette, a five-star lodging on the northernmost tip of Vancouver Island. On the night she meets Jonathan Alkaitis, a hooded figure scrawls a message on the lobbys glass wall: Why do not you swallow broken glass. High above Manhattan, a greater crime is committed: Alkaitis is running an international Ponzi scheme, moving imaginary sums of money through clients accounts. When the financial empire collapses, it obliterates countless fortunes and devastates lives. Vincent, who had been posing as Jonathans wife, walks away into the night. Years later, a victim of the fraud is hired to investigate a strange occurrence: a woman has seemingly vanished from the deck of a container ship between ports of call.', 20, 0),
 (0, 1849137332, 'The Great Gatsby', 'F.Scott Fitzgerald', 'Fiction', 'Classic', '16.99', 'book_covers/gatsby.jpg', 'The story is of the fabulously wealthy Jay Gatsby and his new love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted \"gin was the national drink and sex the national obsession,\" it is an exquisitely crafted tale of America in the 1920s.', 20, 0),
-(0, 1849137333, 'The Guest List', 'Lucy Foley', 'Fiction', 'Regular', '16.99', 'book_covers/guest.jpg', 'On an island off the coast of Ireland, guests gather to celebrate two people joining their lives together as one. The groom: handsome and charming, a rising television star. The bride: smart and ambitious, a magazine publisher. It’s a wedding for a magazine, or for a celebrity: the designer dress, the remote location, the luxe party favors, the boutique whiskey. The cell phone service may be spotty and the waves may be rough, but every detail has been expertly planned and will be expertly executed.', 20, 0),
+(0, 1849137333, 'The Guest List', 'Lucy Foley', 'Fiction', 'Regular', '16.99', 'book_covers/guest.jpg', 'On an island off the coast of Ireland, guests gather to celebrate two people joining their lives together as one. The groom: handsome and charming, a rising television star. The bride: smart and ambitious, a magazine author. It’s a wedding for a magazine, or for a celebrity: the designer dress, the remote location, the luxe party favors, the boutique whiskey. The cell phone service may be spotty and the waves may be rough, but every detail has been expertly planned and will be expertly executed.', 20, 0),
 (0, 1849137334, 'The Interpretation of Dreams', 'Sigmund Freud', 'Nonfiction', 'Regular', '14.99', 'book_covers/dreams.jpg', 'Freuds discovery that the dream is the means by which the unconscious can be explored is undoubtedly the most revolutionary step forward in the entire history of psychology. Dreams, according to his theory, represent the hidden fulfillment of our unconscious wishes.', 20, 0),
 (0, 1849137335, 'The Last Thing He Told Me', 'Laura Dave', 'Fiction', 'Bestseller', '26.99', 'book_covers/last.jpg', 'Before Owen Michaels disappears, he manages to smuggle a note to his beloved wife of one year: Protect her. Despite her confusion and fear, Hannah Hall knows exactly to whom the note refers: Owen’s sixteen-year-old daughter, Bailey. Bailey, who lost her mother tragically as a child. Bailey, who wants absolutely nothing to do with her new stepmother. Hannah and Bailey set out to discover the truth, together. But as they start putting together the pieces of Owen’s past, they soon realize they are also building a new future. One neither Hannah nor Bailey could have anticipated.', 20, 0),
 (0, 1849137336, 'The Lightning Rod', 'Brad Meltzer', 'Fiction', 'New', '19.99', 'book_covers/lightning.jpg', 'Archie Mint has led a charmed life--he hass got a beautiful wife, two impressive kids, and a successful military career. When he is killed while trying to stop a robbery in his own home, his family is shattered--and then shocked when the other shoe drops. Mints charmed life, so perfect on the surface, held criminal secrets none of them could have imagined.', 20, 0),
@@ -100,11 +100,11 @@ INSERT INTO `Books` (`user_id`, `isbn`, `title`, `author`, `subject`, `category`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Cart`
+-- Table structure for table `bag`
 --
 
-CREATE TABLE `Cart` (
-  `cart_item_id` int(20) NOT NULL,
+CREATE TABLE `bag` (
+  `bag_item_id` int(20) NOT NULL,
   `user_id` int(20) NOT NULL,
   `isbn` int(20) NOT NULL,
   `quantity` int(20) NOT NULL
@@ -220,10 +220,10 @@ ALTER TABLE `Books`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `Cart`
+-- Indexes for table `bag`
 --
-ALTER TABLE `Cart`
-  ADD PRIMARY KEY (`cart_item_id`),
+ALTER TABLE `bag`
+  ADD PRIMARY KEY (`bag_item_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `isbn` (`isbn`);
 
@@ -260,10 +260,10 @@ ALTER TABLE `Books`
   MODIFY `isbn` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1849137351;
 
 --
--- AUTO_INCREMENT for table `Cart`
+-- AUTO_INCREMENT for table `bag`
 --
-ALTER TABLE `Cart`
-  MODIFY `cart_item_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `bag`
+  MODIFY `bag_item_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `Ordered_Items`
@@ -294,18 +294,18 @@ ALTER TABLE `Books`
   ADD CONSTRAINT `Books_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `Cart`
+-- Constraints for table `bag`
 --
-ALTER TABLE `Cart`
-  ADD CONSTRAINT `Cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `Cart_ibfk_2` FOREIGN KEY (`isbn`) REFERENCES `Books` (`isbn`);
+ALTER TABLE `bag`
+  ADD CONSTRAINT `bag_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `bag_ibfk_2` FOREIGN KEY (`isbn`) REFERENCES `Books` (`isbn`);
 
 --
 -- Constraints for table `Ordered_Items`
 --
 ALTER TABLE `Ordered_Items`
   ADD CONSTRAINT `Ordered_Items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id`),
-  ADD CONSTRAINT `Ordered_Items_ibfk_2` FOREIGN KEY (`isbn`) REFERENCES `Cart` (`isbn`);
+  ADD CONSTRAINT `Ordered_Items_ibfk_2` FOREIGN KEY (`isbn`) REFERENCES `bag` (`isbn`);
 
 --
 -- Constraints for table `Orders`

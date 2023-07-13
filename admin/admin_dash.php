@@ -159,7 +159,7 @@ while ($row = $result->fetch_assoc()) {
                   Dashboard
                 </h1>
                 <h2 class="h6 fw-medium fw-medium text-muted mb-0">
-                  Welcome <a class="fw-semibold" href="../info/profile.php">Admin</a>, everything looks great.
+                  Welcome <a class="fw-semibold" href="../login/profile.php">Admin</a>, everything looks great.
                 </h2>
               </div>
             </div>
