@@ -24,9 +24,10 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         if (mysqli_num_rows($result) == 1) {
           $user_id = $result->fetch_object()->user_id;
           setcookie("user_id", $user_id, '0', '/');
+          echo "<script>window.location.href='./login.php';</script>";
         }
       }
-      header("Location: ../index.php");
+      echo "<script>window.location.href='../index.php';</script>";
     } else {
       $login_err = "Email or Password were incorrect.";
     }
@@ -47,43 +48,41 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="icon" href="../favicon_io/favicon.ico">
+  <link rel="icon" href="../images/favicon.ico">
   <link rel="stylesheet" href="../style/index.css">
   <title>Login</title>
 </head>
 
-    <!--  Luminary Logo -->
-    <header class="py-3 mb-4 border-bottom">
-      <div class="container d-flex flex-wrap justify-content-center">
-        <a href="../index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-          <svg class="bi me-2" width="10" height="32">
-            <use xlink:href="#bootstrap" />
-          </svg>
-          <i class="bi bi-stars" style="font-size: 20px"></i>
-          <img src="../images\moon.png" style="height: 70px" alt="moonImg" class="moonimg">
-          <p style="font-size: 40px; padding-top: 15px; padding-left: 35px; padding-right: 35px">Luminary - Online Bookstore</p>
-          <img src="../images\sun.png" style="height: 80px; width: 80px" alt="sunImg" class="sunimg">
+<!-- Luminary Logo -->
+<header class="py-3 mb-4 border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a href="../index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+          <ul class="nav">
+          <i class="bi bi-moon-stars" style="font-size: 30px; padding-top: 10px; padding-left: 1rem"></i>
+          <p style="font-size: 32px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary - Online Bookstore</p>
+          <i class="bi bi-stars" style="font-size: 25px; padding-top: 12px; padding-right: 1rem"></i>
+          </ul>
         </a>
-      </div>
-    </header>
+  </div>
+</header>
 
-    <!--  Title Banner -->
-    <div class="container banner" style="position: relative; text-align: center; margin-bottom: 3rem;">
-      <br><br><br>
-      <h2 style="font-size: 45px">Login</h2>
-    </div>
+<!-- Title Banner -->
+<div class="container banner" style="position: relative; text-align: center; margin-bottom: 3rem;">
+  <br>
+  <h2 style="font-size: 30px">Login</h2>
+</div>
 
-    <body>
+<body>
   <main class="form-signin" style="text-align: center">
 
     <!-- Data Form -->
     <div>
       <form method="post" style="display: inline-block">
-        <div class="form-floating" style="width: 30rem;">
-          <input style="height: 60px; font-size: 26px" type="email" name="email" class="form-control" id="floatingInput" placeholder="Email Address">
+        <div class="form-floating" style="width: 25rem;">
+          <input style="height: 40px; font-size: 20px" type="email" name="email" class="form-control" id="floatingInput" placeholder="Email Address">
         </div><br>
-        <div class="form-floating" style="width: 30rem;">
-          <input style="height: 60px; font-size: 26px" type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <div class="form-floating" style="width: 25rem;">
+          <input style="height: 40px; font-size: 20px" type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
         </div><br>
         <?php
         if (!empty($login_err)) {
@@ -93,10 +92,11 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
 
         <div class="checkbox mb-3">
         </div>
-        <button class="btn btn-light" style="background-color: #74B49B; color: white; width: 275px; font-size: 26px" type="submit">Sign in</button>
-        <div style="font-size: 22px"><br><br>
+        <button class="btn btn-light" style="background-color: #74B49B; color: white; width: 200px; font-size: 20px" type="submit">Sign in</button>
+        <div style="font-size: 18px"><br><br>
           Don't have an account?<br>Register <a href="./register.php" style="text-decoration: underline">here</a>
-          <br><br><br><hr>
+          <br><br><br>
+          <hr>
         </div>
     </div>
     </form>
@@ -116,11 +116,13 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         <h5>BROWSE CATEGORIES</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-          <li class="nav-item mb-2"><a href="./browse/new_releases.php" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
           <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
           <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
           <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
           <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
+        </ul>
         </ul>
       </div>
 
@@ -129,7 +131,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
           <li class="nav-item mb-2"><a href="../info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
-          <li class="nav-item mb-2"><a href="../info/faq.php" class="nav-link p-0 text-muted">FAQ</a></li>
+
         </ul>
       </div>
 

@@ -25,7 +25,7 @@ if (array_key_exists('shipping', $_GET)) {
   }
 }
 
-$bag = "SELECT * FROM bag INNER JOIN Books ON bag.isbn = Books.isbn WHERE bag.user_id = $user_id";
+$bag = "SELECT * FROM bag INNER JOIN Books ON bag.book_id = Books.book_id WHERE bag.user_id = $user_id";
 $result = $mysqli->query($bag);
 
 $total = 0;

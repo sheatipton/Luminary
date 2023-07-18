@@ -4,7 +4,7 @@ require_once "../setup/db.connect.php";
 // Check if logged in, retrieve data if true
 $loggedIn = false;
 if (isset($_COOKIE["user_id"])) {
-  $bagNumber = $mysqli->query("SELECT * FROM bag WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $bagNumber = $mysqli->query("SELECT * FROM Bag WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $bagNumber = mysqli_num_rows($bagNumber);
   $user_id = $mysqli->query("SELECT user_id FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $user_id = $user_id->fetch_object()->user_id;
@@ -27,15 +27,16 @@ if (isset($_COOKIE["user_id"])) {
   $loggedIn = false;
 }
 
-// Remove Item Function
+// Action for Remove Item from Bag
 if (array_key_exists('remove', $_GET)) {
   $id = $_GET['remove'];
-  $bag = "DELETE FROM bag WHERE bag_item_id=$id;";
+  $bag = "DELETE FROM Bag WHERE bag_item_id=$id;";
   $result = $mysqli->query($bag);
-  header("location: ./shoppingbag.php");
+  echo "<script>window.location.href='./shoppingbag.php';</script>";
 }
 
-$bag = "SELECT * FROM bag INNER JOIN Books ON bag.isbn = Books.isbn WHERE bag.user_id = $user_id";
+// Pull from DB
+$bag = "SELECT * FROM bag INNER JOIN Books ON bag.book_id = Books.book_id WHERE bag.user_id = $user_id";
 $result = $mysqli->query($bag);
 $total = 0;
 
@@ -45,7 +46,6 @@ $total = 0;
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -53,31 +53,39 @@ $total = 0;
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="icon" href="../favicon_io/favicon.ico">
+  <link rel="icon" href="../images/favicon.ico">
   <link rel="stylesheet" href="../style/index.css">
   <title>Shopping Bag</title>
 </head>
 
 <body>
-  <!--  Top Bar - Promo Code -->
-  <div class="topbar" style="height: 50px">
-    <p class="offer" style="font-size: 20px">Welcome to Luminary! USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
+  <!-- Top Bar - Promo Code -->
+  <div class="topbar" style="height: 35px">
+    <p class="offer" style="font-size: 16px"> USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
   </div>
 
-  <!--  Navigation Bar -->
+   <!-- Navigation Bar -->
   <div class="header">
-    <nav class="py-2 bg-light border-bottom">
-      <div class="container d-flex flex-wrap" style="font-size: 25px">
+    <nav class="py-2 bg-light border-bottom" style="height: 60px">
+      <div class="container d-flex flex-wrap" style="font-size: 20px">
         <ul class="nav me-auto">
           <li class="nav-item"><a href="../info/about_us.php" class="nav-link link-dark px-2">About</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="nav-item"><a href="../info/faq.php" class="nav-link link-dark px-2">FAQ</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
           <?php if ($loggedIn && $type == 0) : ?>
-            <li class="nav-item"><a href="../admin/admin_dash.php" class="nav-link link-dark px-2">Dashboard</a></li>
+            <li class="nav-item"><a href="./admin/admin_dash.php" class="nav-link link-dark px-2">Dashboard</a></li>
           <?php elseif ($loggedIn && $type == 1) : ?>
-            <li class="nav-item"><a href="../author/bookManagement/products.php" class="nav-link link-dark px-2">Dashboard</a></li>
+            <li class="nav-item"><a href="./author/bookManagement/products.php" class="nav-link link-dark px-2">Dashboard</a></li>
           <?php endif; ?>
         </ul>
+
+        <!-- Logo -->
+        <a href="index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+          <ul class="nav">
+          <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
+          <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
+          <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
+          </ul>
+        </a>
         <ul class="nav">
 
           <?php if ($loggedIn) : ?>
@@ -91,36 +99,26 @@ $total = 0;
       </div>
     </nav>
 
-    <!--  Luminary Logo and Search Bar -->
-    <header class="py-3 mb-4 border-bottom">
+    <!-- Search Bar -->
+    <header class="py-2 mb-2 border-bottom">
       <div class="container d-flex flex-wrap justify-content-center">
-        <a href="../index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-          <svg class="bi me-2" width="10" height="32">
-            <use xlink:href="#bootstrap" />
-          </svg>
-          <i class="bi bi-stars" style="font-size: 20px"></i>
-          <img src="../images\moon.png" style="height: 70px" alt="moonImg" class="moonimg">
-          <p style="font-size: 40px; padding-top: 15px; padding-left: 35px; padding-right: 35px">Luminary</p>
-          <img src="../images\sun.png" style="height: 80px; width: 80px" alt="sunImg" class="sunimg">
-
-        </a>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0">
           <div class="input-icons">
-            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 28px; padding-top: 15px;"></i><a>
-                <input type="search" id="thesearch" name="thesearch" style="font-size: 22px; width: 500px; height: 60px; padding-left: 60px" class="form-control input-field" placeholder="Search Title, Author, or ISBN" aria-label="Search">
+            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px;"></i><a>
+                <input type="search" id="thesearch" name="thesearch" style="font-size: 20px; width: 500px; height: 40px; padding-left: 60px" class="form-control input-field" placeholder="Search by Title, Author, or Keyword" aria-label="Search">
           </div>
         </form>
       </div>
     </header>
 
-    <!--  Categories Navigation Bar -->
+    <!-- Categories Navigation Bar -->
     <header class="border-bottom">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
           <a class="nav-link" style="color:black; font-size:22px;" href="../browse/bestsellers.php">Bestsellers</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="../browse/new_releases.php">New In</a>
+        <a class="nav-link" style="color:black; font-size:22px;" href="../browse/new.php">New In</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
@@ -144,7 +142,7 @@ $total = 0;
 
   <!-- Title Banner -->
   <div class="container banner" style="position: relative; text-align: center; margin-bottom: 3rem;">
-    <h2 style="font-size: 45px">Shopping Bag</h2>
+    <h2 style="font-size: 30px">Shopping Bag</h2>
   </div>
 
   <!-- Bag Information -->
@@ -157,14 +155,11 @@ $total = 0;
         <table class="table table-borderless">
           <tbody>
             <?php
-            if ($result == false) {
-              echo "false";
-            }
-
             if (mysqli_num_rows($result) == 1) {
               $rows = mysqli_num_rows($result);
             }
 
+            // Add Totals from Bag
             while ($row = mysqli_fetch_assoc($result)) {
               $total = $total + ($row['quantity'] * $row['price']);
             ?>
@@ -238,11 +233,13 @@ $total = 0;
         <h5>BROWSE CATEGORIES</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-          <li class="nav-item mb-2"><a href="./browse/new_releases.php" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
           <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
           <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
           <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
           <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
+        </ul>
         </ul>
       </div>
 
@@ -250,8 +247,8 @@ $total = 0;
         <h5>QUICK HELP</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="./info/info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
-          <li class="nav-item mb-2"><a href="./info/faq.php" class="nav-link p-0 text-muted">FAQ</a></li>
+          <li class="nav-item mb-2"><a href="./info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
+
         </ul>
       </div>
 

@@ -8,14 +8,13 @@ $sql = "SELECT * FROM Books WHERE user_id = '" . $user_id . "'";
 $result = $mysqli->query($sql);
 $rows = mysqli_num_rows($result);
 
-$isbn = $_GET['isbn'];
+$book_id = $_GET['book_id'];
 $newBook = false;
-if ($isbn == "new") {
+if ($book_id == "new") {
   $newBook = true;
-  $isbn = "";
+  $book_id = "";
   $title = "";
   $author = "";
-  $subject = "";
   $category = "";
   $price = "";
   $image = "book_covers/image.ext";
@@ -23,29 +22,26 @@ if ($isbn == "new") {
   $stock = "";
 } else {
 
-  $title = $mysqli->query("SELECT title FROM Books WHERE isbn = " . $isbn . "");
+  $title = $mysqli->query("SELECT title FROM Books WHERE book_id = " . $book_id . "");
   $title = $title->fetch_object()->title;
-  $author = $mysqli->query("SELECT author FROM Books WHERE isbn = " . $isbn . "");
+  $author = $mysqli->query("SELECT author FROM Books WHERE book_id = " . $book_id . "");
   $author = $author->fetch_object()->author;
-  $subject = $mysqli->query("SELECT subject FROM Books WHERE isbn = " . $isbn . "");
-  $subject = $subject->fetch_object()->subject;
-  $category = $mysqli->query("SELECT category FROM Books WHERE isbn = " . $isbn . "");
+  $category = $mysqli->query("SELECT category FROM Books WHERE book_id = " . $book_id . "");
   $category = $category->fetch_object()->category;
-  $price = $mysqli->query("SELECT price FROM Books WHERE isbn = " . $isbn . "");
+  $price = $mysqli->query("SELECT price FROM Books WHERE book_id = " . $book_id . "");
   $price = $price->fetch_object()->price;
-  $imageSql = $mysqli->query("SELECT image FROM Books WHERE isbn = " . $isbn . "");
+  $imageSql = $mysqli->query("SELECT image FROM Books WHERE book_id = " . $book_id . "");
   $image = $imageSql->fetch_object()->image;
-  $description = $mysqli->query("SELECT description FROM Books WHERE isbn = " . $isbn . "");
+  $description = $mysqli->query("SELECT description FROM Books WHERE book_id = " . $book_id . "");
   $description = $description->fetch_object()->description;
-  $stock = $mysqli->query("SELECT stock FROM Books WHERE isbn = " . $isbn . "");
+  $stock = $mysqli->query("SELECT stock FROM Books WHERE book_id = " . $book_id . "");
   $stock = $stock->fetch_object()->stock;
 }
 
 if (isset($_POST['update'])) {
-  $isbn = addslashes(trim($_POST["isbn"]));
+  $book_id = addslashes(trim($_POST["book_id"]));
   $title = addslashes(trim($_POST["title"]));
   $author = addslashes(trim($_POST["author"]));
-  $subject = addslashes(trim($_POST["subject"]));
   $category = addslashes(trim($_POST["category"]));
   $price = addslashes(trim($_POST["price"]));
   $image = addslashes(trim($_POST["image"]));
@@ -54,25 +50,24 @@ if (isset($_POST['update'])) {
 
   if ($newBook == false) {
     echo 'here';
-    $mysqli->query("UPDATE Books SET isbn = '" . $isbn . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET title = '" . $title . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET author = '" . $author . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET subject = '" . $subject . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET category = '" . $category . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET price = '" . $price . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET image = '" . $image . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET description = '" . $description . "' WHERE isbn = '" . $isbn . "'");
-    $mysqli->query("UPDATE Books SET stock = '" . $stock . "' WHERE isbn = '" . $isbn . "'");
+    $mysqli->query("UPDATE Books SET book_id = '" . $book_id . "' WHERE book_id = '" . $book_id . "'");
+    $mysqli->query("UPDATE Books SET title = '" . $title . "' WHERE book_id = '" . $book_id . "'");
+    $mysqli->query("UPDATE Books SET author = '" . $author . "' WHERE book_id = '" . $book_id . "'");
+    $mysqli->query("UPDATE Books SET category = '" . $category . "' WHERE book_id = '" . $book_id . "'");
+    $mysqli->query("UPDATE Books SET price = '" . $price . "' WHERE book_id = '" . $book_id . "'");
+    $mysqli->query("UPDATE Books SET image = '" . $image . "' WHERE book_id = '" . $book_id . "'");
+    $mysqli->query("UPDATE Books SET description = '" . $description . "' WHERE book_id = '" . $book_id . "'");
+    $mysqli->query("UPDATE Books SET stock = '" . $stock . "' WHERE book_id = '" . $book_id . "'");
     header("location: ./products.php");
   } else if ($newBook == true) {
-    if ($mysqli->query("INSERT INTO Books (user_id, isbn, title, author, subject, category, price, image, description, stock) VALUES ('" . $user_id . "', '" . $isbn . "','" . $title . "', '" . $author . "', '" . $subject . "', '" . $category . "','" . $price . "','" . $image . "', '" . $description . "', '" . $stock . "')")) {
+    if ($mysqli->query("INSERT INTO Books (user_id, book_id, title, author, year, price, category, cover, description, stock) VALUES ('" . $user_id . "', '" . $book_id . "','" . $title . "', '" . $author . "', '" . $year . "', '" . $price . "','" . $category . "','" . $cover . "', '" . $description . "', '" . $stock . "')")) {
       header("location: ./products.php");
     }
   }
 }
 
 if ($_GET['delete'] == true) {
-  $mysqli->query("DELETE FROM Books WHERE isbn = '" . $isbn . "'");
+  $mysqli->query("DELETE FROM Books WHERE book_id = '" . $book_id . "'");
   header("location: ./products.php");
 }
 ?>
@@ -87,7 +82,7 @@ if ($_GET['delete'] == true) {
   <title>Luminary - Book Management</title>
   <!-- Icons -->
   <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-  <link rel="shortcut icon" href="../../favicon_io\favicon.ico">
+  <link rel="shortcut icon" href="../../images/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="../../favicon_io\android-chrome-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io\android-chrome-192x192.png">
   <!-- END Icons -->
@@ -163,7 +158,7 @@ if ($_GET['delete'] == true) {
                 <div class="p-2">
                   <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../login/profile.php">
                     <span class="fs-sm fw-medium">Profile</span>
-                    <span class="badge rounded-pill bg-primary ms-2">1</span>
+                    
                   </a>
                 </div>
                 <div role="separator" class="dropdown-divider m-0"></div>
@@ -214,7 +209,7 @@ if ($_GET['delete'] == true) {
               </a>
             </div>
             <div class="col-4 col-lg-4">
-              <a class="block block-rounded block-link-shadow text-center" href="productEdit.php?isbn=<? echo $isbn ?>&delete=true">
+              <a class="block block-rounded block-link-shadow text-center" href="productEdit.php?book_id=<? echo $book_id ?>&delete=true">
                 <div class="block-content block-content-full">
                   <div class="fs-2 fw-semibold text-danger">
                     <i class="bi bi-trash-fill"></i>
@@ -262,18 +257,14 @@ if ($_GET['delete'] == true) {
                       <input type="text" class="form-control" id="one-ecom-product-id" name="author" value="<?php echo htmlspecialchars($author); ?>" required>
                     </div>
                     <div class="mb-4">
-                      <label class="form-label" for="one-ecom-product-id">ISBN</label>
-                      <input type="text" class="form-control" id="one-ecom-product-id" name="isbn" value="<?php echo htmlspecialchars($isbn); ?>" required>
+                      <label class="form-label" for="one-ecom-product-id">book_id</label>
+                      <input type="text" class="form-control" id="one-ecom-product-id" name="book_id" value="<?php echo htmlspecialchars($book_id); ?>" required>
                     </div>
                     <div class="mb-4">
                       <label class="form-label" for="one-ecom-product-description-short">Short Description</label>
                       <textarea class="form-control" id="one-ecom-product-description-short" name="description" value="<?php echo $description; ?>" rows="4"></textarea>
                     </div>
                     <div class="row mb-4">
-                      <div class="col-md-6">
-                        <label class="form-label" for="one-ecom-product-price">Subject</label>
-                        <input type="text" class="form-control" id="one-ecom-product-price" name="subject" value="<?php echo htmlspecialchars($subject); ?>" required>
-                      </div>
                       <div class="col-md-6">
                         <label class="form-label" for="one-ecom-product-stock">Category</label>
                         <input type="text" class="form-control" id="one-ecom-product-stock" name="category" value="<?php echo htmlspecialchars($category); ?>" required>
@@ -334,7 +325,7 @@ if ($_GET['delete'] == true) {
           </div>
         </div>
     </footer>
-    <!-- END Footer -->
+
     </div>
     <!-- END Page Container -->
 

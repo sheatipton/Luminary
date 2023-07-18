@@ -4,20 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <title>Luminary - Books Management</title>
-    <!-- Icons -->
-    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="../../favicon_io\favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="../../favicon_io\android-chrome-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io\android-chrome-192x192.png">
-    <!-- END Icons -->
-
-    <!-- Stylesheets -->
-    <!-- Fonts and OneUI framework -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" id="css-main" href="../../assets/css/oneui.min.css">
-    <!-- END Stylesheets -->
+      <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/js/plugins/select2.min.css">
+  <link rel="stylesheet" href="../../assets\js\plugins\dropzone.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" id="css-main" href="../../assets/css/oneui.min.css">
+  <link rel="shortcut icon" href="../../images/favicon.ico">
+  <link rel="stylesheet" href="../../style/index.css">
+    <title>Orders Management</title>
+   
   </head>
   <body>
     <body>
@@ -397,17 +393,51 @@
         <!-- END Main Container -->
 
       <!-- Footer -->
-      <footer id="page-footer" class="bg-body-light">
-        <div class="content py-3">
-          <div class="row fs-sm">
-            <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-            <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-              <span>Luminary</span> &copy; <span data-toggle="year-copy"></span>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <!-- END Footer -->
+<div class="container">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-2">
+        <h5>BROWSE CATEGORIES</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
+          <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
+          <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
+          <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
+          <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
+          <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
+        </ul>
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>QUICK HELP</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
+          <li class="nav-item mb-2"><a href="./info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>SHARE WITH YOUR FRIENDS!</h5>
+        <a href="https://www.facebook.com"><i class="bi bi-facebook" style="font-size: 45px; padding-right: 15px"></i></a>
+        <a href="https://www.twitter.com"><i class="bi bi-twitter" style="font-size: 45px; padding-right: 15px"></i></a>
+        <a href="https://www.instagram.com"><i class="bi bi-instagram" style="font-size: 45px; padding-right: 15px"></i></a>
+        
+      </div>
+
+      <div class="col-2">
+        <h5>CONNECT WITH ME!</h5>
+        <a href="https://www.linkedin.com/in/shea-tipton-78189516b/"><i class="bi bi-linkedin" style="font-size: 45px; padding-right: 15px"></i></a>
+        <a href="https://github.com/sheatipton"><i class="bi bi-github" style="font-size: 45px; padding-right: 15px"></i></a>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between py-4 my-4 border-top">
+      <p>&copy; Luminary, Inc. 2022. All rights reserved.</p>
+    </div>
+  </footer>
     </div>
     <!-- END Page Container -->
 
