@@ -33,7 +33,7 @@ $result = $mysqli->query($bag);
 $total = 0;
 $data = array();
 while ($row = mysqli_fetch_assoc($result)) {
-  $total += $row['quantity'] * $row['price'];
+  $total += $row['price'];
   array_push($data, $row);
 }
 
@@ -53,16 +53,15 @@ $bag = "SELECT * FROM bag INNER JOIN Books on bag.book_id=Books.book_id WHERE ba
 $result = $mysqli->query($bag);
 
 // Add Items into Order
-$ordered_items = "INSERT INTO Ordered_Items(order_id, book_id, quantity) VALUES ";
+$ordered_items = "INSERT INTO Ordered_Items(order_id, book_id, price) VALUES ";
 while ($row = mysqli_fetch_assoc($result)) {
   $book_id = $row['book_id'];
-  $quantity = $row['quantity'];
-  $ordered_items .= "($order_id, $book_id, $quantity),";
+  $price = $row['price'];
+  $ordered_items .= "($order_id, $book_id, $price),";
 }
 
 $ordered_items = substr($ordered_items, 0, -1);
 $ordered_items .= ';';
-$result = $mysqli->query($ordered_items);
 ?>
 
 <!doctype html>
@@ -88,36 +87,50 @@ $result = $mysqli->query($ordered_items);
     <p class="offer" style="font-size: 20px">THANK YOU FOR YOUR ORDER!</p>
   </div>
 
-   <!-- Navigation Bar -->
+  <!-- Navigation Bar -->
   <div class="header">
     <nav class="py-2 bg-light border-bottom" style="height: 60px">
       <div class="container d-flex flex-wrap" style="font-size: 20px">
         <ul class="nav me-auto">
-          <li class="nav-item"><a href="../info/about_us.php" class="nav-link link-dark px-2">About</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <ul class="nav me-auto">
+            <li class="nav-item"><a href="../info/about.php" class="nav-link link-dark px-2 toplink">About&nbsp;&nbsp;<i class="bi bi-card-text"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
 
-          <?php if ($loggedIn && $type == 0) : ?>
-            <li class="nav-item"><a href="./admin/admin_dash.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php elseif ($loggedIn && $type == 1) : ?>
-            <li class="nav-item"><a href="./author/bookManagement/products.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php endif; ?>
+            <?php if ($loggedIn && $type == 0) : ?>
+              <a href="../admin/admin_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 1) : ?>
+              <a href="../author/author_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 2) : ?>
+              <a href="../info/dashboard.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php endif; ?>
+
+          </li>
+          </ul>
         </ul>
 
         <!-- Logo -->
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <a href="index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           <ul class="nav">
-          <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
-          <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
-          <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
+            <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
+            <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
+            <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
           </ul>
         </a>
         <ul class="nav">
 
           <?php if ($loggedIn) : ?>
-            <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2">Items Purchased!&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item"><a href="../login/profile.php" class="nav-link link-dark px-2 toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2 toplink">Purchased!&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="../info/profile.php" class="nav-link link-dark px-2 toplink toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
           <?php elseif (!$loggedIn) : ?>
-            <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink">Login</a></li>
-            <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink">Sign up</a></li>
+            <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink toplink">Login</a></li>
+            <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink toplink">Sign up</a></li>
           <?php endif; ?>
         </ul>
       </div>
@@ -128,7 +141,7 @@ $result = $mysqli->query($ordered_items);
       <div class="container d-flex flex-wrap justify-content-center">
         <form class="col-12 col-lg-auto mb-3 mb-lg-0">
           <div class="input-icons">
-            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px;"></i><a>
+            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px; color: teal"></i><a>
                 <input type="search" id="thesearch" name="thesearch" style="font-size: 20px; width: 500px; height: 40px; padding-left: 60px" class="form-control input-field" placeholder="Search by Title, Author, or Keyword" aria-label="Search">
           </div>
         </form>
@@ -143,6 +156,10 @@ $result = $mysqli->query($ordered_items);
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <a class="nav-link" style="color:black; font-size:22px;" href="../browse/new.php">New In</a>
+        </li>
+        <p style="font-size: 25px; opacity: 0.3">|</p>
+        <li class="nav-item">
+          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/collections.php">Collections</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
@@ -170,15 +187,15 @@ $result = $mysqli->query($ordered_items);
   </div>
 
   <!-- Order Receipt -->
-  <div class="container-fluid" style="width: 100rem">
+  <div class="container" style="width: 80rem">
     <div class="row d-flex justify-content-center">
       <div class="col-md-8">
-        <div class="card" style="font-size: 26px">
+        <div class="card" style="font-size: 22px">
           <div class="logo p-2 d-flex justify-content-between text-left px-5">
             <span style="font-size: 26px;">Order Confirmation</span>
           </div>
           <div class="invoice p-5">
-            <h3>Thank you, <?= $name ?>. Your order has been completed!</h3>
+            <h4>Thank you, <?= $name ?>. Your order has been completed!</h4>
             <br>
             <div>
               <table class="table table-borderless">
@@ -203,15 +220,15 @@ $result = $mysqli->query($ordered_items);
 
             <!-- Display Ordered Items -->
             <div>
-              <table table table-borderless>
+              <table class="table table-borderless">
                 <tbody>
                   <?php foreach ($data as $row) { ?>
                     <tr>
-                      <td width="20%"> <img class="cover" src="../<?= $row['image'] ?>" width="70"> </td>
+                      <td width="20%"> <img class="cover" src="../<?= $row['cover'] ?>" width="70"> </td>
                       <td width="60%">
                         <p class="font-weight-bold"><?= $row['title'] ?></p>
                         <div class="product-qty">
-                          <p class="d-block">Author: <?= $row['author'] ?></p>
+                          <p>Author: <?= $row['author'] ?></p>
                         </div>
                       </td>
                       <td width="20%">
@@ -226,6 +243,7 @@ $result = $mysqli->query($ordered_items);
                 </tbody>
               </table>
             </div>
+            <br><hr><br>
 
             <div class="p-3 bg-light bg-opacity-10">
               <?php
@@ -267,9 +285,9 @@ $result = $mysqli->query($ordered_items);
       <div class="col-2">
         <h5>QUICK HELP</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="../login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="../info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
-          <li class="nav-item mb-2"><a href="../info/about_dashboard.php" class="nav-link p-0 text-muted">Dashboard</a></li>
+          <li class="nav-item mb-2"><a href="../info/profile.php" class="nav-link p-0 text-muted">Account</a></li>
+          <li class="nav-item mb-2"><a href="../info/about.php" class="nav-link p-0 text-muted">About</a></li>
+          <li class="nav-item mb-2"><a href="../info/dashboard.php" class="nav-link p-0 text-muted">Dashboard</a></li>
 
         </ul>
       </div>

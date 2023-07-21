@@ -9,6 +9,8 @@ if (isset($_COOKIE["user_id"])) {
   $user_id = $user_id->fetch_object()->user_id;
   $bagNumber = $mysqli->query("SELECT * FROM Bag WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $bagNumber = mysqli_num_rows($bagNumber);
+  $type = $mysqli->query("SELECT type FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $type = $type->fetch_object()->type;
   $book_id = $_GET['book_id'];
 }
 ?>
@@ -35,7 +37,7 @@ if (isset($_COOKIE["user_id"])) {
   <link rel="icon" href="../images/favicon.ico">
   <link rel="stylesheet" href="../style/index.css">
   <link rel="stylesheet" href="../style/browse.css">
-  <title>Info</title>
+  <title>Book Info</title>
 </head>
 
 <body>
@@ -44,25 +46,39 @@ if (isset($_COOKIE["user_id"])) {
     <p class="offer" style="font-size: 16px"> USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
   </div>
 
-  <!-- Navigation Bar -->
   <div class="header">
     <nav class="py-2 bg-light border-bottom" style="height: 60px">
       <div class="container d-flex flex-wrap" style="font-size: 20px">
         <ul class="nav me-auto">
-          <li class="nav-item"><a href="../info/about_us.php" class="nav-link link-dark px-2">About</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item"><a href="../info/about.php" class="nav-link link-dark px-2 toplink">About&nbsp;&nbsp;<i class="bi bi-card-text"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
 
+            <?php if ($loggedIn && $type == 0) : ?>
+              <a href="../admin/admin_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 1) : ?>
+              <a href="../author/author_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 2) : ?>
+              <a href="../info/dashboard.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php endif; ?>
 
-          <?php if ($loggedIn && $type == 0) : ?>
-            <li class="nav-item"><a href="./admin/admin_dash.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php elseif ($loggedIn && $type == 1) : ?>
-            <li class="nav-item"><a href="./author/bookManagement/products.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php endif; ?>
+          </li>
         </ul>
 
         <!-- Logo -->
-        <a href="index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+        <a href="../index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           <ul class="nav">
-            <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
+            
+            <?php if ($loggedIn) : ?>
+              <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 4rem"></i>
+            <?php elseif (!$loggedIn) : ?>
+              <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
+            <?php endif; ?>
             <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
             <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
           </ul>
@@ -70,11 +86,11 @@ if (isset($_COOKIE["user_id"])) {
         <ul class="nav">
 
           <?php if ($loggedIn) : ?>
-            <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item"><a href="../login/profile.php" class="nav-link link-dark px-2 toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2 toplink"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="../info/profile.php" class="nav-link link-dark px-2 toplink toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
           <?php elseif (!$loggedIn) : ?>
-            <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink">Login</a></li>
-            <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink">Sign up</a></li>
+            <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink toplink">Login</a></li>
+            <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink toplink">Sign up</a></li>
           <?php endif; ?>
         </ul>
       </div>
@@ -85,7 +101,7 @@ if (isset($_COOKIE["user_id"])) {
       <div class="container d-flex flex-wrap justify-content-center">
         <form class="col-12 col-lg-auto mb-3 mb-lg-0">
           <div class="input-icons">
-            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px;"></i><a>
+            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px; color: teal"></i><a>
                 <input type="search" id="thesearch" name="thesearch" style="font-size: 20px; width: 500px; height: 40px; padding-left: 60px" class="form-control input-field" placeholder="Search by Title, Author, or Keyword" aria-label="Search">
           </div>
         </form>
@@ -128,14 +144,14 @@ if (isset($_COOKIE["user_id"])) {
   <!-- Back Navigation -->
   <div class="container" style="padding-left: 5rem">
     <a class="btn btn-outline-secondary" href="javascript:history.back()" style="text-decoration: none;">
-      <i class="bi bi-arrow-left"></i>&nbsp;Back To Selection</a></div>
+      <i class="bi bi-arrow-left"></i>&nbsp;Back</a></div>
   <br>
 
   <!-- Action for Add to Bag -->
   <?php
   if (isset($_POST["submit"])) {
     if ($loggedIn == true) {
-      $addTobagSql = "INSERT INTO bag (user_id, book_id, quantity) VALUES ('" . $user_id . "', '" . $book_id . "', 1)";
+      $addTobagSql = "INSERT INTO bag (user_id, book_id) VALUES ('" . $user_id . "', '" . $book_id . "')";
       $mysqli->query($addTobagSql);
       echo ("<meta http-equiv='refresh' content='0'>");
     } else {
@@ -174,7 +190,14 @@ if (isset($_COOKIE["user_id"])) {
         <button style='color: #F9F8EB; background-color: #5C8D89; height: 2.5rem; width: 9rem' class='btn btn-light' type='submit' name='submit'>
             <i class='bi bi-bag-plus' style='font-size: 22px'></i>&nbsp;
             <span style='font-size: 18px'>Add to Bag</span>
-          </button></form>
+          </button>";
+
+          // Low Stock Message
+          if ($stock < 6) {
+            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: red'>Only a few left!</span>";
+          }
+
+          echo "</form>
         <hr><br>
         <p style='font-size: 18px'>" . $description . "</p><br>
         <hr>
@@ -193,13 +216,13 @@ if (isset($_COOKIE["user_id"])) {
       <div class="col-2">
         <h5>BROWSE CATEGORIES</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-          <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
-          <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
-          <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
-          <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
+          <li class="nav-item mb-2"><a href="./bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
+          <li class="nav-item mb-2"><a href="./new.php" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="./collections.php" class="nav-link p-0 text-muted">Collections</a></li>
+          <li class="nav-item mb-2"><a href="./fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
+          <li class="nav-item mb-2"><a href="./nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
+          <li class="nav-item mb-2"><a href="./classics.php" class="nav-link p-0 text-muted">Classics</a></li>
+          <li class="nav-item mb-2"><a href="./all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
         </ul>
         </ul>
       </div>
@@ -207,9 +230,9 @@ if (isset($_COOKIE["user_id"])) {
       <div class="col-2">
         <h5>QUICK HELP</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="../login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="../info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
-          <li class="nav-item mb-2"><a href="../info/about_dashboard.php" class="nav-link p-0 text-muted">Dashboard</a></li>
+          <li class="nav-item mb-2"><a href="../info/profile.php" class="nav-link p-0 text-muted">Account</a></li>
+          <li class="nav-item mb-2"><a href="../info/about.php" class="nav-link p-0 text-muted">About</a></li>
+          <li class="nav-item mb-2"><a href="../info/dashboard.php" class="nav-link p-0 text-muted">Dashboard</a></li>
 
         </ul>
       </div>

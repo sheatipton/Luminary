@@ -2495,8 +2495,8 @@ class DateAdapter {
     return abstract();
   }
 }
-DateAdapter.override = function(members) {
-  Object.assign(DateAdapter.prototype, members);
+DateAdapter.override = function(users) {
+  Object.assign(DateAdapter.prototype, users);
 };
 var adapters = {
   _date: DateAdapter

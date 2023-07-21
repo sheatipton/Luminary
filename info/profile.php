@@ -6,6 +6,8 @@ $loggedIn = false;
 if (isset($_COOKIE["user_id"])) {
   $user_id = $mysqli->query("SELECT user_id FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $user_id = $user_id->fetch_object()->user_id;
+  $type = $mysqli->query("SELECT type FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
+  $type = $type->fetch_object()->type;
   $name = $mysqli->query("SELECT name FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $name = $name->fetch_object()->name;
   $email = $mysqli->query("SELECT email FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
@@ -77,13 +79,13 @@ if (isset($_POST['proceed'])) {
   <main>
     <div class="b-example-divider"></div>
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar" style="width: 280px; font-size: 22px;">
-      <a href="../index.php" style="padding-top: 22px" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <i class="bi bi-arrow-left"></i>&nbsp; Back to Home</a>
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar" style="width: 15rem; font-size: 22px;">
+      <a href="javascript:history.back()" style="padding-top: 22px" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <i class="bi bi-arrow-left"></i>&nbsp; Back</a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="../info/about_us.php" class="nav-link" aria-current="page">
+          <a href="../info/about.php" class="nav-link" aria-current="page">
             <i class="bi bi-file-person"></i>&nbsp;
             About
           </a>
@@ -95,13 +97,13 @@ if (isset($_POST['proceed'])) {
               <i class="bi bi-bar-chart-line"></i>&nbsp;
               Dashboard
             </a>
-          <?php elseif (!$loggedIn && $type == 1) : ?>
-            <a href="../author/bookManagement/products.php" class="nav-link" aria-current="page">
+          <?php elseif ($loggedIn && $type == 1) : ?>
+            <a href="../author/author_dash.php" class="nav-link" aria-current="page">
               <i class="bi bi-bar-chart-line"></i>&nbsp;
               Dashboard
             </a>
-          <?php elseif (!$loggedIn) : ?>
-            <a href="../info/about_dashboard.php" class="nav-link" aria-current="page">
+          <?php elseif ($loggedIn && $type == 2) : ?>
+            <a href="../info/dashboard.php" class="nav-link" aria-current="page">
               <i class="bi bi-bar-chart-line"></i>&nbsp;
               Dashboard
             </a>
@@ -135,61 +137,62 @@ if (isset($_POST['proceed'])) {
       ?>
 
       <!-- Account Settings -->
-      <div class="row" style="font-size: 20px">
-        <div class="col-sm-6">
+      <div class="container" style="font-size: 20px">
+        <div class="col-8">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title" style="font-size: 22px"><i class="bi bi-gear-wide-connected" style="padding-right: 10px;"></i>Account Settings</h5>
               <form method="post">
-                <br><input type="text" style="margin-bottom: 0.5rem; width: 205px" name="name" value="<?php echo htmlspecialchars($name); ?>">
-                <br><input type="text" style="margin-bottom: 0.5rem; width: 205px" name="email" value="<?php echo htmlspecialchars($email); ?>">
-                <br><button type="submit" name="editAccount" class="btn btn-light" style="font-size: 22px">Save All</button>
-                <button type="button" name="editAccount" class="btn btn-light" style="font-size: 22px" data-toggle="modal" data-target="#exampleModal">
+                <br>Name: <input type="text" style="margin-bottom: 0.5rem; width: 210px" name="name" value="<?php echo htmlspecialchars($name); ?>">&nbsp;&nbsp;&nbsp;
+                Email:&nbsp;<input type="text" style="margin-bottom: 0.5rem; width: 210px" name="email" value="<?php echo htmlspecialchars($email); ?>">
+                <br><br>
+                <button type="submit" name="editAccount" class="btn btn-light" style="font-size: 22px">Save Changes</button>
+                <button type="button" name="editAccount" class="btn btn-outline-danger" style="font-size: 22px" data-toggle="modal" data-target="#exampleModal">
                   Delete Account
                 </button>
+            </div>
+          </div>
+        </div>
 
-                <!-- Confirm Delete Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirm Action</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body" style="font-size: 30px">
-                        Are you sure you want to delete your account?
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-light" style="font-size: 22px" data-dismiss="modal">No, go back.</button>
-                        <button type="submit" name="proceed" class="btn btn-danger" style="font-size: 22px">Yes, I'm sure.</button>
-                      </div>
-                    </div>
+        <!-- Confirm Delete Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm Action</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" style="font-size: 30px">
+                Are you sure you want to delete your account?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-light" style="font-size: 22px" data-dismiss="modal">No, go back.</button>
+                <button type="submit" name="proceed" class="btn btn-danger" style="font-size: 22px">Yes, I'm sure.</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form>
+
+          <!-- Update Shipping Address -->
+          <div class="col-8">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 22px"><i class="bi bi-truck" style="padding-right: 10px;"></i>Shipping Address</h5>
+                <form method="post" style="text-align: center">
+                  <br><input type="text" style="margin-bottom: 0.5rem; width: 250px;" name="address" value="<?php echo htmlspecialchars($address); ?>">
+                  <input type="text" style="margin-bottom: 0.5rem; width: 250px;" name="city" value="<?php echo htmlspecialchars($city); ?>">
+                  <div style="display:flex">
+                    <input type="text" style="margin-bottom: 0.5rem; width: 75px;" name="state" value="<?php echo htmlspecialchars($state); ?>">&nbsp;
+                    <input type="text" style="margin-bottom: 0.5rem; width: 75px;" name="zip" value="<?php echo htmlspecialchars($zip); ?>">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" name="editAddresses" class="btn btn-light" style="font-size: 20px">Save Changes</button>
                   </div>
-                </div>
-                <form>
+                  <form>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- Update Shipping Address -->
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title" style="font-size: 22px"><i class="bi bi-truck" style="padding-right: 10px;"></i>Shipping Address</h5>
-              <form method="post" style="text-align: center">
-                <br><input type="text" style="margin-bottom: 0.5rem; width: 250px;" name="address" value="<?php echo htmlspecialchars($address); ?>">
-                <input type="text" style="margin-bottom: 0.5rem; width: 250px;" name="city" value="<?php echo htmlspecialchars($city); ?>">
-                <div style="display:flex">
-                  <input type="text" style="margin-bottom: 0.5rem; width: 75px;" name="state" value="<?php echo htmlspecialchars($state); ?>">&nbsp;
-                  <input type="text" style="margin-bottom: 0.5rem; width: 75px;" name="zip" value="<?php echo htmlspecialchars($zip); ?>">&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button type="submit" name="editAddresses" class="btn btn-light" style="font-size: 20px">Save All</button>
-                </div>
-                <form>
-            </div>
-          </div>
-        </div>
       </div>
   </main>
 
@@ -200,13 +203,13 @@ if (isset($_POST['proceed'])) {
         <div class="col-2">
           <h5>BROWSE CATEGORIES</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-            <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
-            <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
-            <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
-            <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
-            <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
-            <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
+            <li class="nav-item mb-2"><a href="../browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
+            <li class="nav-item mb-2"><a href="../browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
+            <li class="nav-item mb-2"><a href="../browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
+            <li class="nav-item mb-2"><a href="../browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
+            <li class="nav-item mb-2"><a href="../browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
+            <li class="nav-item mb-2"><a href="../browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
+            <li class="nav-item mb-2"><a href="../browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
           </ul>
           </ul>
         </div>
@@ -214,8 +217,8 @@ if (isset($_POST['proceed'])) {
         <div class="col-2">
           <h5>QUICK HELP</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-            <li class="nav-item mb-2"><a href="./info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="./profile.php" class="nav-link p-0 text-muted">Account</a></li>
+            <li class="nav-item mb-2"><a href="./about.php" class="nav-link p-0 text-muted">About</a></li>
 
           </ul>
         </div>

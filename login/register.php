@@ -56,6 +56,11 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["address"]) 
   <title>Sign Up</title>
 </head>
 
+<!-- Top Bar - Promo Code -->
+<div class="topbar" style="height: 35px">
+    <p class="offer" style="font-size: 16px"> USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
+  </div>
+
 <!-- Luminary Logo -->
 <header class="py-3 mb-4 border-bottom">
   <div class="container d-flex flex-wrap justify-content-center">
@@ -161,7 +166,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["address"]) 
         <hr>
       </div>
     </form>
-  </main><br><br><br>
+  </main><br>
 
   <!-- Resources -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -190,8 +195,8 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["address"]) 
       <div class="col-2">
         <h5>QUICK HELP</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="../info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
+          <li class="nav-item mb-2"><a href="./info/profile.php" class="nav-link p-0 text-muted">Account</a></li>
+          <li class="nav-item mb-2"><a href="../info/about.php" class="nav-link p-0 text-muted">About</a></li>
 
         </ul>
       </div>

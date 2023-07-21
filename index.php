@@ -48,7 +48,7 @@ if (isset($_COOKIE["user_id"])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="icon" href="images/favicon.ico">
+  <link rel="icon" href="./images/favicon.ico">
   <link rel="stylesheet" href="style/index.css">
   <title>Home</title>
 </head>
@@ -65,32 +65,43 @@ if (isset($_COOKIE["user_id"])) {
     <nav class="py-2 bg-light border-bottom" style="height: 60px">
       <div class="container d-flex flex-wrap" style="font-size: 20px">
         <ul class="nav me-auto">
-          <li class="nav-item"><a href="./info/about_us.php" class="nav-link link-dark px-2">About</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item"><a href="./info/about.php" class="nav-link link-dark px-2 toplink">About&nbsp;&nbsp;<i class="bi bi-card-text"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
 
-          <?php if ($loggedIn && $type == 0) : ?>
-            <li class="nav-item"><a href="./admin/admin_dash.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php elseif ($loggedIn && $type == 1) : ?>
-            <li class="nav-item"><a href="./author/bookManagement/products.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php endif; ?>
+            <?php if ($loggedIn && $type == 0) : ?>
+              <a href="./admin/admin_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 1) : ?>
+              <a href="./author/author_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 2) : ?>
+              <a href="./info/dashboard.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php endif; ?>
+
+          </li>
         </ul>
 
         <!-- Logo -->
         <a href="index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           <ul class="nav">
-          <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
-          <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
-          <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
+            <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
+            <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
+            <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
           </ul>
         </a>
 
         <ul class="nav">
 
           <?php if ($loggedIn) : ?>
-            <li class="nav-item"><a href="./bag/shoppingbag.php" class="nav-link link-dark px-2"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item"><a href="./login/profile.php" class="nav-link link-dark px-2 toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="./bag/shoppingbag.php" class="nav-link link-dark px-2 toplink toplink"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="./info/profile.php" class="nav-link link-dark px-2 toplink toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
           <?php elseif (!$loggedIn) : ?>
-            <li class="nav-item"><a href="login/login.php" class="nav-link link-dark px-2 toplink">Login</a></li>
-            <li class="nav-item"><a href="login/register.php" class="nav-link link-dark px-2 toplink">Sign up</a></li>
+            <li class="nav-item"><a href="login/login.php" class="nav-link link-dark px-2 toplink toplink">Login</a></li>
+            <li class="nav-item"><a href="login/register.php" class="nav-link link-dark px-2 toplink toplink">Sign up</a></li>
           <?php endif; ?>
         </ul>
       </div>
@@ -101,7 +112,7 @@ if (isset($_COOKIE["user_id"])) {
       <div class="container d-flex flex-wrap justify-content-center">
         <form class="col-12 col-lg-auto mb-2 mb-lg-0">
           <div class="input-icons">
-            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px;"></i><a>
+            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px; color: teal"></i><a>
                 <input type="search" id="thesearch" name="thesearch" style="font-size: 20px; width: 700px; height: 40px; padding-left: 60px" class="form-control input-field" placeholder="Search by Title, Author, or Keyword" aria-label="Search">
           </div>
         </form>
@@ -215,9 +226,9 @@ if (isset($_COOKIE["user_id"])) {
       <div class="col-2">
         <h5>QUICK HELP</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="./info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
-          <li class="nav-item mb-2"><a href="./info/about_dashboard.php" class="nav-link p-0 text-muted">Dashboard</a></li>
+          <li class="nav-item mb-2"><a href="./info/profile.php" class="nav-link p-0 text-muted">Account</a></li>
+          <li class="nav-item mb-2"><a href="./info/about.php" class="nav-link p-0 text-muted">About</a></li>
+          <li class="nav-item mb-2"><a href="./info/dashboard.php" class="nav-link p-0 text-muted">Dashboard</a></li>
         </ul>
       </div>
 

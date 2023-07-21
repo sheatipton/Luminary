@@ -24,7 +24,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         if (mysqli_num_rows($result) == 1) {
           $user_id = $result->fetch_object()->user_id;
           setcookie("user_id", $user_id, '0', '/');
-          echo "<script>window.location.href='./login.php';</script>";
+          echo "<script>window.location.href='../index.php';</script>";
         }
       }
       echo "<script>window.location.href='../index.php';</script>";
@@ -52,6 +52,11 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
   <link rel="stylesheet" href="../style/index.css">
   <title>Login</title>
 </head>
+
+<!-- Top Bar - Promo Code -->
+<div class="topbar" style="height: 35px">
+    <p class="offer" style="font-size: 16px"> USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
+  </div>
 
 <!-- Luminary Logo -->
 <header class="py-3 mb-4 border-bottom">
@@ -100,7 +105,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         </div>
     </div>
     </form>
-  </main><br><br><br>
+  </main><br>
 
   <!-- Resources -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -129,8 +134,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
       <div class="col-2">
         <h5>QUICK HELP</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="../info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
+          <li class="nav-item mb-2"><a href="./info/profile.php" class="nav-link p-0 text-muted">Account</a></li>
+          <li class="nav-item mb-2"><a href="../info/about.php" class="nav-link p-0 text-muted">About</a></li>
 
         </ul>
       </div>

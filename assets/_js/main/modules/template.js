@@ -195,7 +195,7 @@ export default class Template {
   _uiHandleDarkMode(mode = 'init') {
     let self = this;
 
-    // If dark mode is not enabled by default remember default sidebar
+    // If dark mode is not enabled by default reuser default sidebar
     // and header style to return to after any possible dark mode disabling
     if (mode === 'init' && !self._lPage.classList.contains('dark-mode')) {
       if (self._lPage.classList.contains('sidebar-dark')) {
@@ -211,8 +211,8 @@ export default class Template {
       }
     }
 
-    // If remember-theme class is added in #page-container
-    if (this._lPage.classList.contains('remember-theme')) {
+    // If reuser-theme class is added in #page-container
+    if (this._lPage.classList.contains('reuser-theme')) {
       let darkMode = localStorage.getItem('oneuiDarkMode') || false;
 
       if (mode === 'init') {
@@ -240,10 +240,10 @@ export default class Template {
   _uiHandleTheme() {
     let self = this;
     let themeEl = document.getElementById('css-theme');
-    let rememberTheme = this._lPage.classList.contains('remember-theme') ? true : false;
+    let reuserTheme = this._lPage.classList.contains('reuser-theme') ? true : false;
 
-    // If remember theme is enabled
-    if (rememberTheme) {
+    // If reuser theme is enabled
+    if (reuserTheme) {
       let themeName = localStorage.getItem('oneuiThemeName') || false;
 
       // Update color theme
@@ -283,8 +283,8 @@ export default class Template {
         // Update theme element
         themeEl = document.getElementById('css-theme');
   
-        // If remember theme is enabled, save the new active color theme
-        if (rememberTheme) {
+        // If reuser theme is enabled, save the new active color theme
+        if (reuserTheme) {
           localStorage.setItem('oneuiThemeName', themeName);
         }
       });

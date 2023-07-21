@@ -50,36 +50,49 @@ if (isset($_COOKIE["user_id"])) {
     <p class="offer" style="font-size: 16px"> USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
   </div>
 
-   <!-- Navigation Bar -->
+  <!-- Navigation Bar -->
   <div class="header">
     <nav class="py-2 bg-light border-bottom" style="height: 60px">
       <div class="container d-flex flex-wrap" style="font-size: 20px">
         <ul class="nav me-auto">
-          <li class="nav-item"><a href="../info/about_us.php" class="nav-link link-dark px-2">About</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <ul class="nav me-auto">
+            <li class="nav-item"><a href="../info/about.php" class="nav-link link-dark px-2 toplink">About&nbsp;&nbsp;<i class="bi bi-card-text"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
 
-          <?php if ($loggedIn && $type == 0) : ?>
-            <li class="nav-item"><a href="./admin/admin_dash.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php elseif ($loggedIn && $type == 1) : ?>
-            <li class="nav-item"><a href="./author/bookManagement/products.php" class="nav-link link-dark px-2">Dashboard</a></li>
-          <?php endif; ?>
+            <?php if ($loggedIn && $type == 0) : ?>
+              <a href="../admin/admin_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 1) : ?>
+              <a href="../author/author_dash.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php elseif ($loggedIn && $type == 2) : ?>
+              <a href="../info/dashboard.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
+            <?php endif; ?>
+
+          </li>
+          </ul>
         </ul>
 
         <!-- Logo -->
         <a href="index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           <ul class="nav">
-          <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
-          <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
-          <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
+            <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
+            <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
+            <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
           </ul>
         </a>
         <ul class="nav">
 
           <?php if ($loggedIn) : ?>
-            <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item"><a href="../login/profile.php" class="nav-link link-dark px-2 toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2 toplink"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="nav-item"><a href="../info/profile.php" class="nav-link link-dark px-2 toplink toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
           <?php elseif (!$loggedIn) : ?>
-            <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink">Login</a></li>
-            <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink">Sign up</a></li>
+            <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink toplink">Login</a></li>
+            <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink toplink">Sign up</a></li>
           <?php endif; ?>
         </ul>
       </div>
@@ -90,7 +103,7 @@ if (isset($_COOKIE["user_id"])) {
       <div class="container d-flex flex-wrap justify-content-center">
         <form class="col-12 col-lg-auto mb-3 mb-lg-0">
           <div class="input-icons">
-            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px;"></i><a>
+            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px; color: teal"></i><a>
                 <input type="search" id="thesearch" name="thesearch" style="font-size: 20px; width: 500px; height: 40px; padding-left: 60px" class="form-control input-field" placeholder="Search by Title, Author, or Keyword" aria-label="Search">
           </div>
         </form>
@@ -105,6 +118,10 @@ if (isset($_COOKIE["user_id"])) {
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <a class="nav-link" style="color:black; font-size:22px;" href="../browse/new.php">New In</a>
+        </li>
+        <p style="font-size: 25px; opacity: 0.3">|</p>
+        <li class="nav-item">
+          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/collections.php">Collections</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
@@ -136,7 +153,7 @@ if (isset($_COOKIE["user_id"])) {
   </div>
 
   <!-- Information Form -->
-  <div class="container">
+  <div class="container" style="width: 70rem">
     <div class="row g-5" style="font-size: 26px;">
       <div class="col-md-7 col-lg-8">
         <h3>Billing Information</h3>
@@ -254,39 +271,41 @@ if (isset($_COOKIE["user_id"])) {
       <div class="col-md-5 col-lg-4 order-md-last">
         <div class="card position-sticky top-0">
           <form action="checkout.php">
-            <div class="p-3 bg-light bg-opacity-10">
+            <div class="p-3 bg-light bg-opacity-10" style="font-size: 22px">
               <h3 class="card-title mb-3">Shipping Options</h3>
 
-              <div class="custom-control custom-radio custom-control-inline">
+              <!-- Shipping Options, removed for now -->
+              <!--<div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="shipping" name="shipping" class="custom-control-input" value="1">
                 <label class="custom-control-label" for="shipping" name="submit">Overnight: 1 Day ($15)</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline2" name="shipping" class="custom-control-input" value="2">
                 <label class="custom-control-label" for="customRadioInline2">Express: 2-3 Days ($10)</label>
-              </div>
+              </div>-->
+
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline3" name="shipping" class="custom-control-input" value="3">
+                <input type="radio" id="customRadioInline3" name="shipping" class="custom-control-input" value="3" checked="checked">
                 <label class="custom-control-label" for="customRadioInline3">Standard: 5-7 Days ($5)</label>
               </div>
               <p></p>
               <input type="text" class="form-control" name="promo" placeholder="Promo Code">
               <p></p>
-              <button class="btn btn-light" style="background-color: #74B49B; color: white; width: 150px; font-size: 24px" type="submit">Submit</button>
+              <button class="btn btn-light" style="background-color: #74B49B; color: white; width: 5rem; font-size: 18px;" type="submit">Submit</button>
             </div>
           </form>
 
           <!-- Action Buttons -->
           <div style="padding-bottom: 25px;">
             <?php include 'ordersummary.php'; ?>
-            &nbsp;&nbsp;<a href="./payment.php?shipping=<?= $_GET['shipping'] ?>&promo=<?= $_GET['promo'] ?>"><button class="btn btn-light" style="background-color: #74B49B; color: white; width: 275px; font-size: 26px">Checkout</button></a>
+            &nbsp;&nbsp;<a href="./payment.php?shipping=<?= $_GET['shipping'] ?>&promo=<?= $_GET['promo'] ?>"><button class="btn btn-light" style="background-color: #74B49B; color: white; width: 15rem; font-size: 26px">Checkout</button></a>
             <p></p>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-2" style="padding: 20px 0px 70px">
-      <a href="./shoppingbag.php"><button class="btn btn-light" style="background-color: #74B49B; color: white; width: 250px; font-size: 26px" type="submit">Back to Summary</button></a>
+      <a href="./shoppingbag.php"><button class="btn btn-outline-secondary" style="width: 250px; font-size: 26px" type="submit">Back to Summary</button></a>
     </div>
   </div>
   </div>
@@ -311,8 +330,8 @@ if (isset($_COOKIE["user_id"])) {
         <div class="col-2">
           <h5>QUICK HELP</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="../login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-            <li class="nav-item mb-2"><a href="../info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="../info/profile.php" class="nav-link p-0 text-muted">Account</a></li>
+            <li class="nav-item mb-2"><a href="../info/about.php" class="nav-link p-0 text-muted">About</a></li>
 
           </ul>
         </div>

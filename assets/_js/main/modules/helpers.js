@@ -578,7 +578,7 @@ export default class Helpers {
    *
    * Helpers.run('jq-appear');
    *
-   * Example usage (the following div will appear on scrolling, remember to add the invisible class):
+   * Example usage (the following div will appear on scrolling, reuser to add the invisible class):
    *
    * <div class="invisible" data-toggle="appear">...</div>
    *

@@ -10,11 +10,12 @@ $rows = mysqli_num_rows($result);
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-      <!-- Bootstrap CSS -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/2?family=Inter:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="../../assets/js/plugins/select2.min.css">
   <link rel="stylesheet" href="../../assets\js\plugins\dropzone.css">
@@ -22,362 +23,187 @@ $rows = mysqli_num_rows($result);
   <link rel="stylesheet" id="css-main" href="../../assets/css/oneui.min.css">
   <link rel="shortcut icon" href="../../images/favicon.ico">
   <link rel="stylesheet" href="../../style/index.css">
-    <title>Orders Management</title>
-   
-  </head>
-  <body>
-    <body>
-      <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-boxed">
+  <title>Dashboard</title>
 
-        <nav id="sidebar" aria-label="Main Navigation"  style="background-color: #5E6073;">
-          <!-- Sidebar Scrolling -->
-          <div class="js-sidebar-scroll" >
-            <!-- Side Navigation -->
-            <div class="content-side">
-              <ul class="nav-main">
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="../../index.php"  style=" color: #F9F8EB;">
-                    <i class="bi bi-house-fill"></i>
-                    <span class="nav-main-link-name" style="margin-left: 10px;">Luminary</span>
-                  </a>
-                </li>
-                <hr style="height: .1rem;">
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="../admin_dash.php"  style=" color: #F9F8EB;">
-                    <i class="bi bi-clipboard-data"></i>
-                    <span class="nav-main-link-name" style="margin-left: 10px;">Admin Dashboard</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="../orderManagement\order.php"  style=" color: #F9F8EB;">
-                    <i class="bi bi-table"></i>
-                    <span class="nav-main-link-name" style="margin-left: 10px;">Orders</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="../memberManagement\members.php"  style=" color: #F9F8EB;">
-                    <i class="bi bi-person-bounding-box"></i>
-                    <span class="nav-main-link-name" style="margin-left: 10px;">Members</span>
-                  </a>
-                </li>
-                <li class="nav-main-item">
-                  <a class="nav-main-link" href="../bookManagement\products.php"  style=" color: #F9F8EB;">
-                    <i class="bi bi-book-fill"></i>
-                    <span class="nav-main-link-name" style="margin-left: 10px;">Books</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- END Side Navigation -->
-          </div>
-          <!-- END Sidebar Scrolling -->
-        </nav>
-        <!-- END Sidebar -->
+</head>
 
-        <!-- Header -->
-        <header id="page-header">
-          <!-- Header Content -->
-          <div class="content-header">
-            <!-- Left Section -->
-            <div class="d-flex align-items-center">
-              <button type="button" class="btn btn-sm btn-alt-secondary me-2 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
-                <i class="bi bi-list"></i>
-              </button>
-              <span class="d-none d-sm-inline-block ms-2">Luminary - All Orders</span>
-            </div>
-            <!-- END Left Section -->
+<body>
+  <!-- Side Navigation -->
+  <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-boxed">
+    <nav id="sidebar" aria-label="Main Navigation" style="background-color: #5E6073;">
+      <div class="js-sidebar-scroll">
+        <div class="content-side">
+          <ul class="nav-main">
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="../../index.php" style=" color: #F9F8EB;">
+                <i class="bi bi-house"></i>
+                <span class="nav-main-link-name" style="margin-left: 10px;">Home</span>
+              </a>
+            </li>
+            <hr style="height: .1rem;">
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="../admin_dash.php" style=" color: #F9F8EB;">
+                <i class="bi bi-clipboard-data"></i>
+                <span class="nav-main-link-name" style="margin-left: 10px;">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="../bookManagement\products.php" style=" color: #F9F8EB;">
+                <i class="bi bi-book"></i>
+                <span class="nav-main-link-name" style="margin-left: 10px;">Products</span>
+              </a>
+            </li>
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="../userManagement\users.php" style=" color: #F9F8EB;">
+                <i class="bi bi-people"></i>
+                <span class="nav-main-link-name" style="margin-left: 10px;">Users</span>
+              </a>
+            </li>
+            <li class="nav-main-item">
+              <a class="nav-main-link" href="./orders.php" style=" color: #F9F8EB;">
+                <i class="bi bi-table"></i>
+                <span class="nav-main-link-name" style="margin-left: 10px;">Orders</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-            <!-- Right Section -->
-            <div class="d-flex align-items-center">
-              <!-- User Dropdown -->
-              <div class="dropdown d-inline-block ms-2">
-                <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="d-none d-sm-inline-block ms-2" style="margin-right:10px;">Admin</span>
-                  <i class="bi bi-person-square"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
-                  <div class="p-3 text-center bg-body-light border-bottom rounded-top">
-                    <p class="mt-2 mb-0 fw-medium">Admin Name</p>
-                    <p class="mb-0 text-muted fs-sm fw-medium">Position</p>
-                  </div>
-                  <div class="p-2">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../login/profile.php">
-                      <span class="fs-sm fw-medium">Profile</span>
-                      <span class="badge rounded-pill bg-default-light ms-2">1</span>
-                    </a>
-                  </div>
-                  <div role="separator" class="dropdown-divider m-0"></div>
-                  <div class="p-2">
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../login/logout.php">
-                      <span class="fs-sm fw-medium">Log Out</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- END User Dropdown -->
+    <!-- Header -->
+    <header id="page-header">
+      <div class="content-header">
+        <div class="d-flex align-items-center">
+          <button type="button" class="btn btn-sm btn-alt-secondary me-2 d-none d-lg-inline-block" data-toggle="layout" data-action="sidebar_mini_toggle">
+            <i class="bi bi-list"></i>
+          </button>
+          <span class="d-none d-sm-inline-block ms-2">Order Management</span>&nbsp;&nbsp;<i class="bi bi-table"></i>
+        </div>
 
-            </div>
-            <!-- END Right Section -->
-          </div>
-          <!-- END Header Content -->
-
-          <!-- Header Loader -->
-          <!-- Please check out the Loaders page under Components category to see examples of showing/hiding it -->
-          <div id="page-header-loader" class="overlay-header bg-body-extra-light">
-            <div class="content-header">
-              <div class="w-100 text-center">
-                <i class="fa fa-fw fa-circle-notch fa-spin"></i>
-              </div>
-            </div>
-          </div>
-          <!-- END Header Loader -->
-        </header>
-        <!-- END Header -->
-
-        <!-- Main Container -->
-        <main id="main-container">
-          <!-- Page Content -->
-          <div class="content">
-            <!-- Quick Overview -->
-            <div class="row">
-              <div class="col-6 col-lg-3">
-                <a class="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
-                  <div class="block-content block-content-full">
-                    <div class="fs-2 fw-semibold text-primary">0</div>
-                  </div>
-                  <div class="block-content py-2 bg-body-light">
-                    <p class="fw-medium fs-sm text-muted mb-0">
-                      Pending
-                    </p>
-                  </div>
+        <!-- User Dropdown -->
+        <div class="d-flex align-items-center">
+          <div class="dropdown d-inline-block ms-2">
+            <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="d-none d-sm-inline-block ms-2" style="margin-right:10px;">Admin</span>
+              <i class="bi bi-person-square"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0 border-0" aria-labelledby="page-header-user-dropdown">
+              <div class="p-2">
+                <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../info/profile.php">
+                  <span class="fs-sm fw-medium">Profile</span>
                 </a>
               </div>
-              <div class="col-6 col-lg-3">
-                <a class="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
-                  <div class="block-content block-content-full">
-                    <div class="fs-2 fw-semibold text-dark"><? echo $rows - 20; ?></div>
-                  </div>
-                  <div class="block-content py-2 bg-body-light">
-                    <p class="fw-medium fs-sm text-muted mb-0">
-                      Today
-                    </p>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-lg-3">
-                <a class="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
-                  <div class="block-content block-content-full">
-                    <div class="fs-2 fw-semibold text-dark"><? echo $rows; ?></div>
-                  </div>
-                  <div class="block-content py-2 bg-body-light">
-                    <p class="fw-medium fs-sm text-muted mb-0">
-                      All Time
-                    </p>
-                  </div>
+              <div role="separator" class="dropdown-divider m-0"></div>
+              <div class="p-2">
+                <a class="dropdown-item d-flex align-items-center justify-content-between" href="../../login/logout.php">
+                  <span class="fs-sm fw-medium">Logout</span>
                 </a>
               </div>
             </div>
-            <!-- END Quick Overview -->
+          </div>
+        </div>
+      </div>
 
-            <!-- All Orders -->
-            <div class="block block-rounded">
-              <div class="block-header block-header-default">
-                <h3 class="block-title">All Orders</h3>
-                <div class="block-options">
-                  <div class="dropdown">
-                    <button type="button" class="btn-block-option" id="dropdown-ecom-filters" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Filters <i class="fa fa-angle-down ms-1"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-ecom-filters">
-                      <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        Pending..
-                        <span class="badge bg-black-50 rounded-pill">35</span>
-                      </a>
-                      <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        Processing
-                        <span class="badge bg-warning rounded-pill">15</span>
-                      </a>
-                      <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        For Delivery
-                        <span class="badge bg-info rounded-pill">20</span>
-                      </a>
-                      <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        Canceled
-                        <span class="badge bg-danger rounded-pill">72</span>
-                      </a>
-                      <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        Delivered
-                        <span class="badge bg-success rounded-pill">890</span>
-                      </a>
-                      <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                        All
-                        <span class="badge bg-primary rounded-pill">997</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+      <!-- Header Loader -->
+      <div id="page-header-loader" class="overlay-header bg-body-extra-light">
+        <div class="content-header">
+          <div class="w-100 text-center">
+            <i class="fa fa-fw fa-circle-notch fa-spin"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main id="main-container">
+      <div class="content">
+
+        <!-- All Orders -->
+        <div class="block block-rounded">
+          <div class="block-header block-header-default">
+            <h3 class="block-title">All Orders - <?php echo $rows ?></h3>
+            <div class="block-options">
+              <div class="dropdown">
               </div>
-              <div class="block-content">
+            </div>
+          </div>
+          <div class="block-content">
 
-              <!-- All Orders Table -->
-              <div class="table-responsive">
-                  <table class="table table-borderless table-striped table-vcenter">
-                    <thead>
-                      <tr>
-                        <th class="text-center" style="width: 200px;">Confirm #</th>
-                        <th class="d-none d-sm-table-cell text-center" style="width: 250px;">Order Date</th>
-                        <th style="width: 250px;">Order Status</th>
-                        <th class="d-none d-xl-table-cell text-center">Customer ID</th>
-                        <th class="d-none d-sm-table-cell text-end" style="width: 200px;">Value</th>
-                        <th class="text-center">Action</th>
-                      </tr>
-                    </thead>
+            <!-- All Orders Table -->
+            <div class="table-responsive">
+              <table class="table table-borderless table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th class="d-none d-sm-table-cell">Order ID</th>
+                    <th class="d-none d-sm-table-cell">Order Date</th>
+                    <th class="d-none d-sm-table-cell">Confirmation #</th>
+                    <th class="d-none d-sm-table-cell">Customer ID</th>
+                    <th class="d-none d-sm-table-cell">Subtotal</th>
+                    <th class="d-none d-sm-table-cell">Status</th>
+                    <th class="d-none d-sm-table-cell">Action</th>
+                  </tr>
+                </thead>
 
-              <?php
-                  $i = 1;
-                  while ($row = mysqli_fetch_assoc($result)) {
-                    $order_id[$i] = $row['order_id'];
-                    $user_id[$i] = $row['user_id'];
-                    $confirmation_number[$i] = $row['confirmation_number'];
-                    $order_date[$i] = $row['order_date'];
-                    $subtotal[$i] = $row['subtotal'];
-                    $i++;
-                  }
+                <?php
+                $i = 1;
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $order_id[$i] = $row['order_id'];
+                  $user_id[$i] = $row['user_id'];
+                  $order_date[$i] = $row['order_date'];
+                  $confirmation_number[$i] = $row['confirmation_number'];
+                  $subtotal[$i] = $row['subtotal'];
+                  $i++;
+                }
 
-                  for ($i = 1; $i <= count($subtotal); $i++) {
-                    echo "
+                for ($i = 1; $i <= count($subtotal); $i++) {
+                  echo "
                     <tbody>
                       <tr>
-                        <td class='text-center fs-sm'>
-                          <a class='fw-semibold' href='order.php?d=" . $order_id[$i] . "'>
-                            <strong>" . $confirmation_number[$i] . "</strong>
-                          </a>
+                        <td class='d-none d-md-table-cell fs-sm'>
+                            <p>" . $order_id[$i] . "</p>
                         </td>
-                        <td class='d-none d-sm-table-cell text-center fs-sm'>" . $order_date[$i] . "</td>
-                        <td>
-                        <span class='badge bg-success'>Order Completed</span>
+                        <td class='d-none d-md-table-cell fs-sm'>
+                            <p>" . $order_date[$i] . "</p>
                         </td>
-                        <td style='text-align:center' class='d-none d-xl-table-cell fs-sm'>
-                          <a class='fw-semibold' href='javascript:void(0)'>" . $user_id[$i] . "</a>
+                        <td class='d-none d-md-table-cell fs-sm'>
+                            <p>" . $confirmation_number[$i] . "</p>
                         </td>
-                        <td class='d-none d-sm-table-cell text-end fs-sm'>
+                        <td class='d-none d-md-table-cell fs-sm'>
+                            <p>" . $user_id[$i] . "</p>
+                        </td>
+                        <td class='d-none d-md-table-cell fs-sm'>
                           <strong>$" . $subtotal[$i] . ".00</strong>
                         </td>
-                        <td class='text-center'>
-                          <a class='btn btn-sm btn-alt-secondary' href='order.php?d=" . $order_id[$i] . "' data-bs-toggle='tooltip' title='View'>
-                            <i class='bi bi-eye-fill'></i>
+                        <td class='d-none d-md-table-cell fs-md'>
+                          <span class='badge bg-success'>Completed</span>
+                        </td>
+                        <td class='d-none d-md-table-cell fs-sm'>
+                          <a class='btn btn-outline-info btn-sm' href='order.php?=" . $order_id[$i] . "'>Edit
                         </td>
                       </tr>";
-                  }
-
-                      //<span class="badge bg-info">For delivery</span>
-                      //<span class="badge bg-success">Delivered</span>
-                      //<span class="badge bg-warning">Processing</span>
-                      //<span class='badge bg-danger'>Canceled</span>
-                      echo "
+                }
+                echo "
                 </tbody>
                   </table>
                 </div>";
                 ?>
-                <!-- END All Orders Table -->
 
-                <!-- Pagination -->
-                <nav aria-label="Photos Search Navigation">
-                  <ul class="pagination pagination-sm justify-content-end mt-2">
-                    <li class="page-item">
-                      <a class="page-link" href="javascript:void(0)" tabindex="-1" aria-label="Previous">
-                        Prev
-                      </a>
-                    </li>
-                    <li class="page-item active">
-                      <a class="page-link" href="javascript:void(0)">1</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="javascript:void(0)">2</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="javascript:void(0)">3</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="javascript:void(0)">4</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="javascript:void(0)" aria-label="Next">
-                        Next
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-                <!-- END Pagination -->
-              </div>
             </div>
-            <!-- END All Orders -->
           </div>
-          <!-- END Page Content -->
-        </main>
-        <!-- END Main Container -->
+        </div>
+    </main>
+  </div>
 
-      <!-- Footer -->
-<div class="container">
-  <footer class="py-5">
-    <div class="row">
-      <div class="col-2">
-        <h5>BROWSE CATEGORIES</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-          <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
-          <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
-          <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
-          <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
-        </ul>
-        </ul>
-      </div>
+  <!-- Resources -->
+  <script src="../../assets/js/oneui.app.min.js"></script>
+  <script src="../../assets/js/lib/jquery.min.js"></script>
+  <script src="../../assets/js/plugins/select2.full.min.js"></script>
+  <script src="../../assets/js/plugins/bootstrap-maxlength.min.js"></script>
+  <script src="../../assets/js/plugins/ckeditor.js"></script>
+  <script src="../../assets/js/plugins/dropzone.min.js"></script>
+  <script>
+    One.helpersOnLoad(['jq-select2', 'jq-maxlength', 'js-ckeditor']);
+  </script>
+</body>
 
-      <div class="col-2">
-        <h5>QUICK HELP</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./login/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="./info/about_us.php" class="nav-link p-0 text-muted">About</a></li>
-          
-        </ul>
-      </div>
-
-      <div class="col-2">
-        <h5>SHARE WITH YOUR FRIENDS!</h5>
-        <a href="https://www.facebook.com"><i class="bi bi-facebook" style="font-size: 45px; padding-right: 15px"></i></a>
-        <a href="https://www.twitter.com"><i class="bi bi-twitter" style="font-size: 45px; padding-right: 15px"></i></a>
-        <a href="https://www.instagram.com"><i class="bi bi-instagram" style="font-size: 45px; padding-right: 15px"></i></a>
-        
-      </div>
-
-      <div class="col-2">
-        <h5>CONNECT WITH ME!</h5>
-        <a href="https://www.linkedin.com/in/shea-tipton-78189516b/"><i class="bi bi-linkedin" style="font-size: 45px; padding-right: 15px"></i></a>
-        <a href="https://github.com/sheatipton"><i class="bi bi-github" style="font-size: 45px; padding-right: 15px"></i></a>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-between py-4 my-4 border-top">
-      <p>&copy; Luminary, Inc. 2022. All rights reserved.</p>
-    </div>
-  </footer>
-    </div>
-    <!-- END Page Container -->
-
-    <script src="../../assets/js/oneui.app.min.js"></script>
-
-    <!-- jQuery (required for Select2 + Bootstrap Maxlength plugin) -->
-    <script src="../../assets/js/lib/jquery.min.js"></script>
-
-    <!-- Page JS Plugins -->
-    <script src="../../assets/js/plugins/select2.full.min.js"></script>
-    <script src="../../assets/js/plugins/bootstrap-maxlength.min.js"></script>
-    <script src="../../assets/js/plugins/ckeditor.js"></script>
-    <script src="../../assets/js/plugins/dropzone.min.js"></script>
-
-    <!-- Page JS Helpers (Select2 + Bootstrap Maxlength + CKEditor plugins) -->
-    <script>One.helpersOnLoad(['jq-select2', 'jq-maxlength', 'js-ckeditor']);</script>
-  </body>
 </html>
