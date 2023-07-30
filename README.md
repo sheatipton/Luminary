@@ -7,7 +7,7 @@ An online bookstore created for book lovers who dream of an enchanting shopping 
 - [Features](#features)
 - [Installation](#installation)
 - [Resources](#resources)
-- [Images](#images)
+- [Video](#video)
 
 ## Description
 Luminary is a full stack e-commerce bookstore that achieves an aesthetic and smooth user experience for three distinct user types.
@@ -47,9 +47,9 @@ HTML, CSS, MySQL, PHP, Javascript
 Bootstrap, StackOverflow, W3Schools, TutorialsPoint
 
 ## Video
-[Watch the Project Tour Video Here.](https://youtu.be/QkwBxPO02kw)
+[Watch the Project Tour Here](https://youtu.be/QkwBxPO02kw)
 
-<img width="1440" alt="Video Image" src="https://github.com/sheatipton/Luminary/assets/63987819/9e247428-645a-4a7f-bca4-640b054255a0">
+<br><img width="1440" alt="Video Image" src="https://github.com/sheatipton/Luminary/assets/63987819/9e247428-645a-4a7f-bca4-640b054255a0">
 
 
 
