@@ -24,6 +24,10 @@
               <a href="../info/dashboard.php" class="nav-link link-dark px-2 toplink">
                 Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
               </a>
+            <?php elseif (!$loggedIn) : ?>
+              <a href="../info/dashboard.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
             <?php endif; ?>
 
           </li>
@@ -44,6 +48,7 @@
           <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2 toplink"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <li class="nav-item"><a href="../info/profile.php" class="nav-link link-dark px-2 toplink toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
         <?php elseif (!$loggedIn) : ?>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink toplink">Login</a></li>
           <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink toplink">Sign up</a></li>
         <?php endif; ?>

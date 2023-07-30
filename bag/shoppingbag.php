@@ -46,7 +46,7 @@ $total = 0;
 <script>
   function processSearch() {
     var searchValue = document.getElementById('thesearch').value;
-    window.location.href = "../browse/search.php?thesearch=" + searchValue;
+    window.location.href = "../browse/search.php?category=search&thesearch=" + searchValue;
   }
 </script>
 
@@ -147,7 +147,7 @@ $total = 0;
                 </tbody>
               </table>
               <button class="btnstandard" type="submit" style="width: 22rem; font-size: 28px">Proceed to Checkout</button><p></p>
-              <a href="javascript:history.back(2)"><button class="btn btn-outline-secondary" type="submit" style="width: 22rem; font-size: 28px">Continue Shopping</button></a>
+              <a href="javascript:history.back()" class="btn btn-outline-secondary" style="width: 22rem; font-size: 28px">Continue Shopping</a>
             </form>  
           </div>
         </div>

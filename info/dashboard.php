@@ -76,6 +76,11 @@ if (isset($_COOKIE["user_id"])) {
           <a href="../login/login.php" class="link-dark"><u>
               here</u></a> using author or admin credentials to experience Dashboard.
         </p>
+        <?php elseif (!$loggedIn) : ?>
+        <p>You are currently <b>logged out</b>. Login
+          <a href="../login/login.php" class="link-dark"><u>
+              here</u></a> using author or admin credentials to experience Dashboard.
+        </p>
       <?php endif; ?>
 
     </div>

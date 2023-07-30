@@ -23,9 +23,10 @@ $description = $description->fetch_object()->description;
 
 <!-- Search Function -->
 <script>
+
   function processSearch() {
     var searchValue = document.getElementById('thesearch').value;
-    window.location.href = "./search.php?thesearch=" + searchValue;
+    window.location.href = "./search.php?category=search&thesearch=" + searchValue;
   }
 </script>
 
@@ -43,7 +44,7 @@ $description = $description->fetch_object()->description;
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="icon" href="../images/favicon.ico">
   <link rel="stylesheet" href="../style/index.css">
-  <title><?php echo $name; ?></title>
+  <title><?php echo $name ?></title>
 </head>
 
 <body>
@@ -110,7 +111,7 @@ $description = $description->fetch_object()->description;
             <button class='btn btn-light btnstandard' style='height: 50px; width: 50px;' type='submit' name='submit'>
             <i class='bi bi-bag-plus' style='font-size: 28px'></i>
             </button>&nbsp;&nbsp;&nbsp;
-              <a class='btn btn-light btnstandard' href='./book_info.php?book_id=" . $book_id[$i] . "' style='height: 50px; width: 50px'>
+              <a class='btn btn-light btnstandard' href='./book_info.php?category=" . $category . "&book_id=" . $book_id[$i] . "' style='height: 50px; width: 50px'>
               <i class='bi bi-info-circle' style='padding-left: 1px; font-size: 28px'></i></button>
             </a>
             <input type='hidden' value=" . $book_id[$i] . " name='get_id'/>

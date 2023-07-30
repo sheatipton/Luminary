@@ -12,6 +12,7 @@ if (isset($_COOKIE["user_id"])) {
   $type = $mysqli->query("SELECT type FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $type = $type->fetch_object()->type;
   $book_id = $_GET['book_id'];
+  $category = $_GET['category'];
 }
 ?>
 
@@ -19,8 +20,9 @@ if (isset($_COOKIE["user_id"])) {
 <!-- Search Function -->
 <script>
   function processSearch() {
+    
     var searchValue = document.getElementById('thesearch').value;
-    window.location.href = "../browse/search.php?thesearch=" + searchValue;
+    window.location.href = "../browse/search.php?category=search&thesearch=" + searchValue;
   }
 </script>
 
@@ -55,7 +57,7 @@ if (isset($_COOKIE["user_id"])) {
 
   <!-- Back Navigation -->
   <div class="container" style="padding-left: 5rem">
-    <a class="btn btn-outline-secondary" href="javascript:history.back()" style="text-decoration: none;">
+    <a class="btn btn-outline-secondary" href="./browse.php?category=<?php echo $category ?>" style="text-decoration: none;">
       <i class="bi bi-arrow-left"></i>&nbsp;Back</a>
   </div>
   <br>

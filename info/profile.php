@@ -80,7 +80,7 @@ if (isset($_POST['proceed'])) {
     <div class="b-example-divider"></div>
 
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar" style="width: 15rem; font-size: 22px;">
-      <a href="javascript:history.back()" style="padding-top: 22px" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <a href="../index.php" style="padding-top: 22px" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <i class="bi bi-arrow-left"></i>&nbsp; Back</a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">

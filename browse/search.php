@@ -11,6 +11,7 @@ if (isset($_COOKIE["user_id"])) {
   $bagNumber = mysqli_num_rows($bagNumber);
   $type = $mysqli->query("SELECT type FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $type = $type->fetch_object()->type;
+  $category = $_GET['category'];
 }
 ?>
 
@@ -18,7 +19,7 @@ if (isset($_COOKIE["user_id"])) {
 <script>
   function processSearch() {
     var searchValue = document.getElementById('thesearch').value;
-    window.location.href = "../browse/search.php?thesearch=" + searchValue;
+    window.location.href = "../browse/search.php?category=search&thesearch=" + searchValue;
   }
 </script>
 
@@ -104,7 +105,7 @@ if (isset($_COOKIE["user_id"])) {
             <button style='color: #F9F8EB; background-color: #5C8D89; height: 50px; width: 50px;' class='btn btn-light' type='submit' name='submit'>
             <i class='bi bi-bag-plus' style='font-size: 28px'></i>
             </button>&nbsp;&nbsp;&nbsp;
-              <a href='./book_info.php?book_id=" . $book_id[$i] . "' style='color: #F9F8EB; background-color: #5C8D89; height: 50px; width: 50px' class='btn btn-light'>
+              <a href='./book_info.php?category=" . $category . "&book_id=" . $book_id[$i] . "' style='color: #F9F8EB; background-color: #5C8D89; height: 50px; width: 50px' class='btn btn-light'>
               <i class='bi bi-info-circle' style='padding-left: 0.1px; font-size: 28px'></i></button>
             </a>
             <input type='hidden' value=" . $book_id[$i] . " name='get_id'/>

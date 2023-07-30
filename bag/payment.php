@@ -32,7 +32,7 @@ if (isset($_COOKIE["user_id"])) {
 <script>
   function processSearch() {
     var searchValue = document.getElementById('thesearch').value;
-    window.location.href = "../browse/search.php?thesearch=" + searchValue;
+    window.location.href = "../browse/search.php?category=search&thesearch=" + searchValue;
   }
 </script>
 
