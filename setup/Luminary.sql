@@ -273,7 +273,7 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`user_id`, `type`, `name`, `email`, `address`, `city`, `state`, `zip`, `dob`, `password`) VALUES
-(0, 0, 'Admin', 'admin@email.com', 'remote', 'any city', 'any state', 0, '0000-00-00', '$2y$10$/DbgfCM9OP1overJIhc5wOtgAglkiXNI7lD9Jsuk8GQPmU5pgNkbq'),
+(0, 0, 'Admin', 'admin@email.com', 'Luminary Headquarters', 'Atlanta', 'Georgia', 0, '0000-00-00', '$2y$10$/DbgfCM9OP1overJIhc5wOtgAglkiXNI7lD9Jsuk8GQPmU5pgNkbq'),
 (1, 1, 'Nicholas Sparks', 'nicholassparks@email.com', '123 Main St.', 'Omaha', 'NE', 68007, '2022', '$2y$10$xXhkoeuNxeusJs3cU8kKauJ8NVYJFA.gTMyN8nBxzFgYT0U33evhS'),
 (2, 2, 'Lysanne Scheider', 'lysanne_schneider1@hotmail.com', '8729 Railroad St.', 'Mahwah', 'NJ', 7430, '1985-03-13', '$2y$10$FCG1TiYsKuvyQYvu60sYMO/GOD1bJAThB.rTi22OsqLk7WRNPp.Ga'),
 (3, 2, 'Lucas Anderson', 'lucas@example.com', '8765 Redwood Drive', 'New York', 'NY', 10001, '1997-05-21', '$2y$10$WLS9hF/n8hyZjgQyCQdIPeNWU.1iB9QZ9TSWuIOt5.AIVlEqZZyma'),
