@@ -119,7 +119,7 @@ if (isset($_COOKIE["user_id"])) {
         $newrow++;
       }
     } else {
-      echo "<div style='text-align: center;'><br><img src='../images/noresult.png' width='400'";
+      echo "<div style='text-align: center; padding-right: 8rem'><br><img src='../images/noresult.png' width='400'>";
     }
     ?>
   </div><br><br><br><br><br><br>

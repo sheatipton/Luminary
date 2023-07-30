@@ -182,7 +182,7 @@ if ($_GET['delete'] == true) {
             </a>
           </div>
           <div class="col-4 col-lg-4">
-            <a class="block block-rounded block-link-shadow text-center" href="productEdit.php?book_id=<? echo $book_id ?>&delete=true">
+            <a class="block block-rounded block-link-shadow text-center" href="productEdit.php?book_id=<?php echo $book_id ?>&delete=true">
               <div class="block-content block-content-full">
                 <div class="fs-2 fw-semibold text-danger">
                   <i class="bi bi-trash-fill"></i>

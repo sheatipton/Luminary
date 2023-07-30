@@ -162,7 +162,7 @@ if (isset($_COOKIE["user_id"])) {
   <div class="container">
     <div class="row">
       <div class="col-5">
-        <div class="container" style="padding-left: 8rem;">
+        <div class="container" style="padding-left: 5rem;">
           <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -170,15 +170,15 @@ if (isset($_COOKIE["user_id"])) {
               <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
               <button type="button" data-bs-target="#carousel2" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
-            <div class="carousel-inner" style="width: 20rem; height: 30rem">
+            <div class="carousel-inner" style="width: 22rem; height: 32rem">
               <div class="carousel-item active">
-                <img src="images/harrypotter_poster.jpg" style="width: 20rem; height: 30rem">
+                <img src="images/harrypotter_poster.jpg" style="width: 22rem; height: 32rem">
               </div>
               <div class="carousel-item">
-                <img src="images/moon_poster.jpg" style="width: 20rem; height: 30rem">
+                <img src="images/moon_poster.jpg" style="width: 22rem; height: 32rem">
               </div>
               <div class="carousel-item">
-                <img src="images/gameofthrones_poster.jpg" style="width: 20rem; height: 30rem">
+                <img src="images/gameofthrones_poster.jpg" style="width: 22rem; height: 32rem">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">

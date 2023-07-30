@@ -52,7 +52,7 @@ if (isset($_POST['editAddresses'])) {
 // Button action for "Delete Account"
 if (isset($_POST['proceed'])) {
   $mysqli->query("DELETE from Users WHERE user_id = '" . $user_id . "'");
-  header('location: <div class=""></div>/login/logout.php');
+  header('location: ../login/logout.php');
 }
 ?>
 

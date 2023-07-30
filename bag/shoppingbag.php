@@ -129,7 +129,7 @@ $total = 0;
       <div class="row d-flex justify-content-end px-5">
         <div class="col-md-5" style="padding-bottom: 1.5rem;">
           <div class="text-right">
-            <form action="./checkout.php?subtotal='<? echo $total ?>'" method="get">
+            <form action="./checkout.php?subtotal='<?php echo $total ?>'" method="get">
               <table class="table table-borderless">
                 <tbody class="totals" style="font-size: 26px">
                   <tr class="border-top border-bottom ">

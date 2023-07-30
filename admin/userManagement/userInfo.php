@@ -19,7 +19,6 @@ $type = $type->fetch_object()->type;
 if (isset($_POST['update'])) {
   $user_id = addslashes(trim($_POST["user_id"]));
   $name = addslashes(trim($_POST["name"]));
-  echo $name;
   $dob = addslashes(trim($_POST["dob"]));
   $email = addslashes(trim($_POST["email"]));
   $type = addslashes(trim($_POST["type"]));
@@ -170,7 +169,7 @@ if ($_GET['delete'] == true) {
         <div class="content">
           <div class="row">
             <div class="col-6 col-lg-6">
-              <a class="block block-rounded block-link-shadow text-center" href="userInfo.php?selectedUser=<? echo $user_id ?>&delete=true">
+              <a class="block block-rounded block-link-shadow text-center" href="userInfo.php?selectedUser=<?php echo $user_id ?>&delete=true">
                 <div class="block-content block-content-full">
                   <div class="fs-2 fw-semibold text-danger">
                     <i class="bi bi-trash-fill"></i>

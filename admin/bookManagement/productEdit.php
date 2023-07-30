@@ -1,6 +1,5 @@
 <?php
 require_once "../../setup/db.connect.php";
-error_reporting(0);
 
 $user_id = $mysqli->query("SELECT user_id FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
 $user_id = $user_id->fetch_object()->user_id;
@@ -12,12 +11,11 @@ $book_id = $_GET['book_id'];
 $newBook = false;
 if ($book_id == "new") {
   $newBook = true;
-  $book_id = "";
   $title = "";
   $author = "";
   $year = "";
   $price = "";
-  $category = "";
+  $category = "New";
   $cover = "book_covers/image.jpg";
   $description = "";
   $stock = "20";
@@ -42,7 +40,6 @@ if ($book_id == "new") {
 }
 
 if (isset($_POST['update'])) {
-  $book_id = addslashes(trim($_POST["book_id"]));
   $title = addslashes(trim($_POST["title"]));
   $author = addslashes(trim($_POST["author"]));
   $year = addslashes(trim($_POST["year"]));
@@ -53,7 +50,6 @@ if (isset($_POST['update'])) {
   $stock = addslashes(trim($_POST["stock"]));
 
   if ($newBook == false) {
-    $mysqli->query("UPDATE Books SET book_id = '" . $book_id . "' WHERE book_id = '" . $book_id . "'");
     $mysqli->query("UPDATE Books SET title = '" . $title . "' WHERE book_id = '" . $book_id . "'");
     $mysqli->query("UPDATE Books SET author = '" . $author . "' WHERE book_id = '" . $book_id . "'");
     $mysqli->query("UPDATE Books SET year = '" . $year . "' WHERE book_id = '" . $book_id . "'");
@@ -64,7 +60,7 @@ if (isset($_POST['update'])) {
     $mysqli->query("UPDATE Books SET stock = '" . $stock . "' WHERE book_id = '" . $book_id . "'");
     echo "<script>window.location.href='./products.php';</script>";
   } else if ($newBook == true) {
-    if ($mysqli->query("INSERT INTO Books (user_id, book_id, title, author, year, price, category, cover, description, stock) VALUES ('" . $user_id . "', '" . $book_id . "','" . $title . "', '" . $author . "', '" . $year . "', '" . $price . "','" . $category . "','" . $cover . "', '" . $description . "', '" . $stock . "')")) {
+    if ($mysqli->query("INSERT INTO Books (user_id, title, author, year, price, category, cover, description, stock) VALUES ('" . $user_id . "','" . $title . "', '" . $author . "', '" . $year . "', '" . $price . "','" . $category . "','" . $cover . "', '" . $description . "', '" . $stock . "')")) {
       echo "<script>window.location.href='./products.php';</script>";
     }
   }
@@ -201,7 +197,7 @@ if ($_GET['delete'] == true) {
             </a>
           </div>
           <div class="col-4 col-lg-4">
-            <a class="block block-rounded block-link-shadow text-center" href="productEdit.php?book_id=<? echo $book_id ?>&delete=true">
+            <a class="block block-rounded block-link-shadow text-center" href="productEdit.php?book_id=<?php echo $book_id ?>&delete=true">
               <div class="block-content block-content-full">
                 <div class="fs-2 fw-semibold text-danger">
                   <i class="bi bi-trash-fill"></i>
