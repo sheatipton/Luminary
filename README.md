@@ -47,8 +47,9 @@ HTML, CSS, MySQL, PHP, Javascript
 Bootstrap, StackOverflow, W3Schools, TutorialsPoint
 
 ## Video
-[![Watch the video here]([https://youtu.be/vt5fpE0bzSY](https://youtu.be/QkwBxPO02kw)]
-![Uploading Video Image.png…]()
+[Watch the video here]([https://youtu.be/vt5fpE0bzSY](https://youtu.be/QkwBxPO02kw))
+
+<img width="1440" alt="Video Image" src="https://github.com/sheatipton/Luminary/assets/63987819/9e247428-645a-4a7f-bca4-640b054255a0">
 
 
 
