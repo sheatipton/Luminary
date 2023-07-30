@@ -13,6 +13,7 @@
   <link rel="stylesheet" id="css-main" href="../assets/css/oneui.min.css">
   <link rel="icon" href="../images/favicon.ico">
   <link rel="stylesheet" href="../style/about.css">
+  <link rel="stylesheet" href="../style/index.css">
   <title>About</title>
 
 </head>
@@ -22,8 +23,8 @@
   <!-- Navigation Bar -->
   <div class="bg-flat-dark">
     <div style="padding:30px" class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
-      <a href="javascript:history.back()" style="font-size: 22px; color: white; padding-top: 20px" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <i class="bi bi-arrow-left"></i>&nbsp; Back</a>
+      <a href="javascript:history.back()" style="font-size: 22px; color: white; padding-top: 20px" class="underlinelink">
+        <i class="bi bi-arrow-left" style="padding-right: 10px"></i>Back</a>
       <div class="flex-grow-1">
         <div style="text-align:center">
           <span class="h2 text-success-light mb-2" style="padding-right: 150px">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jul 20, 2023 at 06:16 PM
+-- Generation Time: Jul 24, 2023 at 12:45 AM
 -- Server version: 5.7.39
 -- PHP Version: 7.4.33
 
@@ -173,7 +173,38 @@ INSERT INTO `Books` (`user_id`, `book_id`, `title`, `author`, `year`, `price`, `
 (0, 1849137428, 'China Rich Girlfriend', 'Kevin Kwan', 2015, '16.99', 'Collections', 'book_covers/chinarichgirlfriend.jpg', 20, 'China Rich Girlfriend is the second book in the Crazy Rich Asians series. It continues the story of Rachel Chu as she delves deeper into the opulent and sometimes treacherous world of the Chinese elite.'),
 (0, 1849137429, 'Rich People Problems', 'Kevin Kwan', 2017, '14.99', 'Collections', 'book_covers/richpeopleproblems.jpg', 20, 'Rich People Problems is the third and final book in the Crazy Rich Asians series. It concludes the saga of the wealthy and powerful families in Asia as they face personal and family challenges, all while living in extreme luxury.'),
 (0, 1849137430, 'All the Light We Cannot See', 'Anthony Doerr', 2014, '12.99', 'Fiction', 'book_covers/allthelightwecannotsee.jpg', 20, 'All the Light We Cannot See is a historical fiction novel by Anthony Doerr. Set during World War II, the book follows the parallel stories of a blind French girl and a German soldier whose paths eventually intersect.'),
-(0, 1849137431, 'Making It So', 'Patrick Stewart', 2021, '14.99', 'Nonfiction', 'book_covers/makingitso.jpg', 20, 'Patrick Stewart: Making It So is a biography of the iconic actor Patrick Stewart. It offers a glimpse into his life, career, and the experiences that shaped him as an actor and as a person.');
+(0, 1849137431, 'Making It So', 'Patrick Stewart', 2021, '14.99', 'Nonfiction', 'book_covers/makingitso.jpg', 20, 'Patrick Stewart: Making It So is a biography of the iconic actor Patrick Stewart. It offers a glimpse into his life, career, and the experiences that shaped him as an actor and as a person.'),
+(0, 1849137435, 'Life of Pi', 'Yann Martel', 2001, '10.99', 'Fiction', 'book_covers/lifeofpi.jpg', 20, 'A captivating tale of survival at sea with a Bengal tiger.'),
+(0, 1849137436, 'The Giver', 'Lois Lowry', 1993, '9.99', 'Collections', 'book_covers/thegiver.jpg', 20, 'Jonas is a boy living in a community based on Sameness, and he is selected as the Receiver of Memory, and The Giver (the old Receiver) begins giving Jonas ancient memories. The Receiver acts as a source of wisdom for the community. As Jonas gets more memories, he begins to question his society.'),
+(0, 1849137437, 'Gathering Blue', 'Lois Lowry', 2000, '9.99', 'Collections', 'book_covers/gatheringblue.jpg', 20, 'The second book of The Giver Quartet follows the journey of Kira, a young woman with a physical disability living in a community that shuns those with \"imperfections\". When she\'s called to the Council of Guardians, she\'s surprised to find they have an important job for her to undertake.'),
+(0, 1849137438, 'Messenger', 'Lois Lowry', 2004, '9.99', 'Collections', 'book_covers/messenger.jpg', 20, 'The third book of The Giver Quartet is set in an isolated community known simply as Village, the novel focuses on a boy, Matty, who serves as message-bearer through the ominous and lethal Forest that surrounds the community.'),
+(0, 1849137439, 'Son', 'Lois Lowry', 2012, '9.99', 'Collections', 'book_covers/son.jpg', 20, 'The fourth and final book of The Giver Quartet follows Claire, the birth mother of Gabriel, who was marked for \"release\" in The Giver before being taken out of the community by Jonas. Claire, obsessed with finding her son, embarks on a journey out of the community in an attempt to follow and find him.'),
+(0, 1849137440, 'Duma Key', 'Stephen King', 2008, '15.99', 'Fiction', 'book_covers/dumakey.jpg', 20, 'A gripping supernatural thriller set in the Florida Keys.'),
+(0, 1849137441, 'It Happened One Summer', 'Tessa Bailey', 2021, '17.99', 'Bestseller', 'book_covers/ithappenedonesummer.jpg', 5, 'It Happened One Summer is a contemporary romance about socialite Piper Bellinger reeling after a fall from grace. Following some bad choices, Piper finds herself stuck for the summer in the small town where she was born, where she might find more than she bargained for.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Browse`
+--
+
+CREATE TABLE `Browse` (
+  `name` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Browse`
+--
+
+INSERT INTO `Browse` (`name`, `category`, `description`) VALUES
+('Bestsellers', 'Bestseller', 'Our most popular books. Your next read.'),
+('Classics', 'Classic', 'Historical favorites. All right here.'),
+('Collections', 'Collections', 'Books made just for each other.'),
+('Fiction', 'Fiction', 'Let your imagination lead.'),
+('New In', 'New', 'Read them before your friends spoil them.'),
+('Nonfiction', 'Nonfiction', 'Memoirs, autobiographies, business, and more.');
 
 -- --------------------------------------------------------
 
@@ -323,13 +354,13 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Bag`
 --
 ALTER TABLE `Bag`
-  MODIFY `bag_item_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `bag_item_id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Books`
 --
 ALTER TABLE `Books`
-  MODIFY `book_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1849137432;
+  MODIFY `book_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1849137442;
 
 --
 -- AUTO_INCREMENT for table `Ordered_Items`

@@ -2,7 +2,50 @@ body {
   font-family: 'Anek Tamil', sans-serif;
   background-color: #F9F8EB;
 }
-/* topbar: offer and free shipping info */
+
+/* other */
+.d-block {
+  width: 100%;
+  height: 75vh;
+}
+
+/* Buttons */
+a {
+  color: #403F48;
+}
+
+a:hover {
+  color: cadetblue;
+  text-decoration: none;
+}
+
+.toplink:hover {
+  border-style: none;
+  border-radius: 0.25rem;
+  color: #F9F8EB;
+  background-color: cadetblue;
+}
+
+.underlinelink:hover {
+  text-decoration: underline;
+}
+
+.btnstandard {
+  border-style: none;
+  border-radius: 0.25rem;
+  padding: 5;
+  color: #F9F8EB;
+  background-color: cadetblue;
+}
+
+.btnstandard:hover {
+  border-style: none;
+  border-radius: 0.25rem;
+  color: #F9F8EB;
+  background-color: cadetblue(75, 153, 153);
+}
+
+/* Top Bar Promo */
 .topbar {
   background-color: #403F48;
   color: #FFF0F0;
@@ -11,45 +54,17 @@ body {
   font-size: 80%;
   height: 2rem;
 }
+
 .offer {
   padding: 0.5rem;
 }
-/* footer */
-.bi {
-  vertical-align: -.125em;
-  color: inherit;
-}
-.nav flex-column {
-  color:#403F48;
-}
-.footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-/* header */
-.navbar-brand {
-  font-family: 'Tenor Sans', sans-serif;
-  color: #403F48;
-  margin-left: 10px;
-}
-.navbar-brand:link, .navbar-brand:visited {
-  color: #403F48;
-}
-.toplink:hover {
-  border-style: none;
-  border-radius: 0.25rem;
-  color: #F9F8EB;
-  background-color: #5C8D89;
-}
-.sunimg {
-  width: 10%;
-}
+
+/* Search Bar */
 .input-field {
   width: 100%;
   margin-top: 1rem;
 }
+
 .input-icons i {
   position: absolute;
 }
@@ -68,43 +83,7 @@ input[type="search"]{
   padding-left: 2.5rem;
 }
 
-a {
-  color: #403F48;
-}
-
-a:hover {
-  color: #403F48;
-  text-decoration: none;
-}
-
-.d-block {
-  width: 100%;
-  height: 75vh;
-}
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: 400;
-}
-
-.btn-secondary {
-  color: #F9F8EB;
-  background-color: #5C8D89;
-}
-
-.gen {
-  margin-top: 1rem;
-}
-
-
-/* poster */
+/* Mission Poster */
 .poster {
   position: relative;
   text-align: center;
@@ -116,10 +95,4 @@ a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-/* anchor */
-a.anchor {
- 
-  text-decoration: none;
 }

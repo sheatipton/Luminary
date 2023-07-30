@@ -27,9 +27,10 @@ if (isset($_COOKIE["user_id"])) {
   $dob = $mysqli->query("SELECT dob FROM Users WHERE user_id = '" . $_COOKIE["user_id"] . "'");
   $dob = $dob->fetch_object()->dob;
 }
+
 ?>
 
-<!--  Search Bar Function -->
+<!-- Search Function -->
 <script>
   function processSearch() {
     var searchValue = document.getElementById('thesearch').value;
@@ -49,7 +50,7 @@ if (isset($_COOKIE["user_id"])) {
   <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="icon" href="./images/favicon.ico">
-  <link rel="stylesheet" href="style/index.css">
+  <link rel="stylesheet" href="./style/index.css">
   <title>Home</title>
 </head>
 
@@ -80,13 +81,17 @@ if (isset($_COOKIE["user_id"])) {
               <a href="./info/dashboard.php" class="nav-link link-dark px-2 toplink">
                 Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
               </a>
+              <?php elseif (!$loggedIn) : ?>
+              <a href="./info/dashboard.php" class="nav-link link-dark px-2 toplink">
+                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
+              </a>
             <?php endif; ?>
 
           </li>
         </ul>
 
         <!-- Logo -->
-        <a href="index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+        <a href="./index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           <ul class="nav">
             <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i>
             <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
@@ -100,9 +105,11 @@ if (isset($_COOKIE["user_id"])) {
             <li class="nav-item"><a href="./bag/shoppingbag.php" class="nav-link link-dark px-2 toplink toplink"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item"><a href="./info/profile.php" class="nav-link link-dark px-2 toplink toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
           <?php elseif (!$loggedIn) : ?>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item"><a href="login/login.php" class="nav-link link-dark px-2 toplink toplink">Login</a></li>
             <li class="nav-item"><a href="login/register.php" class="nav-link link-dark px-2 toplink toplink">Sign up</a></li>
           <?php endif; ?>
+
         </ul>
       </div>
     </nav>
@@ -123,28 +130,28 @@ if (isset($_COOKIE["user_id"])) {
     <header class="border-bottom">
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="./browse/bestsellers.php">Bestsellers</a>
+          <a class="nav-link underlinelink" style="color:black; font-size:22px;" href="./browse/browse.php?category=bestseller">Bestsellers</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="./browse/new.php">New In</a>
+        <a class="nav-link underlinelink" style="color:black; font-size:22px;" href="./browse/browse.php?category=new">New In</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="./browse/collections.php">Collections</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="./browse/fiction.php">Fiction</a>
+        <a class="nav-link underlinelink" style="color:black; font-size:22px;" href="./browse/browse.php?category=collections">Collections</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="./browse/nonfiction.php">Nonfiction</a>
+          <a class="nav-link underlinelink" style="color:black; font-size:22px;" href="./browse/browse.php?category=fiction">Fiction</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
         <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="./browse/classics.php">Classics</a>
+          <a class="nav-link underlinelink" style="color:black; font-size:22px;" href="./browse/browse.php?category=nonfiction">Nonfiction</a>
         </li>
         <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="./browse/all_books.php">Browse All</a>
+        <li class="nav-item">
+          <a class="nav-link underlinelink" style="color:black; font-size:22px;" href="./browse/browse.php?category=classic">Classics</a>
+        </li>
+        <p style="font-size: 25px; opacity: 0.3">|</p>
+        <a class="nav-link underlinelink" style="color:black; font-size:22px;" href="./browse/browse.php?category=all">Browse All</a>
         </li>
       </ul>
     </header>
@@ -152,56 +159,89 @@ if (isset($_COOKIE["user_id"])) {
   </div>
 
   <!--  Poster Carousel -->
-  <div class="container-fluid">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="padding-left: 10rem">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-      </div>
-      <div class="carousel-inner" style="width: 1100px; height: 500px;">
-        <div class="carousel-item active">
-          <img src="images\bookclub_carousel.jpg" style="height: 500px;" alt="Oops! Something went wrong here.">
-        </div>
-        <div class="carousel-item">
-          <img src="images\hogwarts_carousel.jpeg" style="height: 500px;" alt="Oops! Something went wrong here.">
-          <div class="carousel-caption d-none d-md-block" style="padding: 0px 0px 250px 450px">
-            <h1>Experience the magic.</h1>
-            <h2><a href="./browse/collections.php" style="color: gray"><u>Shop Now</u></a></h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <div class="container" style="padding-left: 8rem;">
+          <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carousel2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner" style="width: 20rem; height: 30rem">
+              <div class="carousel-item active">
+                <img src="images/harrypotter_poster.jpg" style="width: 20rem; height: 30rem">
+              </div>
+              <div class="carousel-item">
+                <img src="images/moon_poster.jpg" style="width: 20rem; height: 30rem">
+              </div>
+              <div class="carousel-item">
+                <img src="images/gameofthrones_poster.jpg" style="width: 20rem; height: 30rem">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="images\prideandprejudice_carousel.jpg" style="height: 500px;" alt="Oops! Something went wrong here.">
-        </div>
-        <div class="carousel-item">
-          <img src="images\featured.jpg" style="height: 500px;" alt="Oops! Something went wrong here.">
+      </div>
+
+      <?php
+      // Featured Books
+      $sql = $mysqli->query("SELECT book_id FROM Books WHERE title = 'normal people'");
+      $normal = $sql->fetch_object()->book_id;
+      $sql = $mysqli->query("SELECT book_id FROM Books WHERE title = 'daisy jones & the six'");
+      $daisy = $sql->fetch_object()->book_id;
+      $sql = $mysqli->query("SELECT book_id FROM Books WHERE title = 'the summer i turned pretty'");
+      $pretty = $sql->fetch_object()->book_id;
+      $sql = $mysqli->query("SELECT book_id FROM Books WHERE title = 'the spanish love deception'");
+      $spanish = $sql->fetch_object()->book_id;
+      $sql = $mysqli->query("SELECT book_id FROM Books WHERE title = 'emma'");
+      $emma = $sql->fetch_object()->book_id;
+      $sql = $mysqli->query("SELECT book_id FROM Books WHERE title = 'a little life'");
+      $littlelife = $sql->fetch_object()->book_id;
+      $sql = $mysqli->query("SELECT book_id FROM Books WHERE title = 'it starts with us'");
+      $itstarts = $sql->fetch_object()->book_id;
+      ?>
+
+      <!-- Promo Materials -->
+      <div class="col-7">
+        <h3 class="text-center">Our Picks This Month<i class="bi bi-balloon-heart" style="color:palevioletred"></i></h3><br>
+        <div style="padding-left: 3rem">
+        <a href='./browse/book_info.php?book_id=<?php echo $normal ?>'><img src="./book_covers/normalpeople.jpg" width='125' height='200'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='./browse/book_info.php?book_id=<?php echo $daisy ?>'><img src="./book_covers/daisyjonesandthesix.jpg" width='125' height='200'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='./browse/book_info.php?book_id=<?php echo $pretty ?>'><img src="./book_covers/thesummeriturnedpretty.jpg" width='125' height='200'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='./browse/book_info.php?book_id=<?php echo $spanish ?>'><img src="./book_covers/thespanishlovedeception.jpg" width='125' height='200'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='./browse/book_info.php?book_id=<?php echo $emma ?>'><img src="./book_covers/emma.jpg" width='125' height='200'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='./browse/book_info.php?book_id=<?php echo $littlelife ?>'><img src="./book_covers/alittlelife.jpg" width='125' height='200'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href='./browse/book_info.php?book_id=<?php echo $itstarts ?>'><img src="./book_covers/itstartswithus.jpg" width='125' height='200'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div></div><br>
+    </div>
+
+    <br><br><br>
+    <div class="container">
+      <!-- Mission Statement -->
+      <div class="poster">
+        <img src="images/flyingbook_mission.jpg" style="width: 50rem; filter: brightness(80%) contrast(50%);">
+        <div class="centered" style="font-size: 24px; width: 550px">
+          <h4>OUR MISSION</h4>
+          <p>At Luminary, we aim to provide an enchanting shopping experience for book lovers everywhere.<br>We believe that books are meant to be loved.</p>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  </div>
+    <br><br><br>
 
-  <div class="container">
-    <!-- Mission Statement -->
-    <div class="poster">
-      <img src="images\flyingbook_mission.jpg" style="width: 70%; filter: brightness(80%) contrast(50%);">
-      <div class="centered" style="font-size: 24px; width: 550px">
-        <h4>OUR MISSION</h4>
-        <p>At Luminary, we aim to provide an enchanting shopping experience for book lovers everywhere.<br>We believe that books are meant to be loved.</p>
-      </div>
-    </div>
-  </div><br><br><br>
-
-  <!-- Resources -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Resources -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 
@@ -212,14 +252,12 @@ if (isset($_COOKIE["user_id"])) {
       <div class="col-2">
         <h5>BROWSE CATEGORIES</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-          <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
-          <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
-          <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
-          <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
-        </ul>
+          <li class="nav-item mb-2"><a href="./browse/browse.php?category=bestseller" class="nav-link p-0 text-muted">Bestsellers</a></li>
+          <li class="nav-item mb-2"><a href="./browse/browse.php?category=new" class="nav-link p-0 text-muted">New In</a></li>
+          <li class="nav-item mb-2"><a href="./browse/browse.php?category=fiction" class="nav-link p-0 text-muted">Fiction</a></li>
+          <li class="nav-item mb-2"><a href="./browse/browse.php?category=nonfiction" class="nav-link p-0 text-muted">Nonfiction</a></li>
+          <li class="nav-item mb-2"><a href="./browse/browse.php?category=classic" class="nav-link p-0 text-muted">Classics</a></li>
+          <li class="nav-item mb-2"><a href="./browse/browse.php?category=all" class="nav-link p-0 text-muted">Browse All</a></li>
         </ul>
       </div>
 
@@ -250,6 +288,5 @@ if (isset($_COOKIE["user_id"])) {
     <div class="d-flex justify-content-between py-4 my-4 border-top">
       <p>&copy; Luminary, Inc. 2022. All rights reserved.</p>
     </div>
-  </footer>
 
 </html>

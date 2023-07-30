@@ -46,14 +46,24 @@ a {
   height: 15rem;
 }
 
-.btn-light {
-  color: #F9F8EB;
-  background-color: #5C8D89;
-}
-
 .title {
   font-size: 40px;
   color: #89A3B2;
   font-family: 'Tenor Sans', sans-serif;
   margin-left: 1rem;
+}
+
+.btnstandard {
+  border-style: none;
+  border-radius: 0.25rem;
+  padding: 5;
+  color: #F9F8EB;
+  background-color: cadetblue;
+}
+
+.btnstandard:hover {
+  border-style: none;
+  border-radius: 0.25rem;
+  color: #F9F8EB;
+  background-color: cadetblue(75, 153, 153);
 }

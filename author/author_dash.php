@@ -112,7 +112,7 @@ while ($row = $result->fetch_assoc()) {
     </header>
 
     <!-- Welcome Banner -->
-    <main id="main-container">
+    <main id="main-container" style="background-color: #F9F8EB;">
       <div class="content">
         <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-2 text-center text-md-start">
           <div class="flex-grow-1 mb-1 mb-md-0">

@@ -42,6 +42,14 @@ $total = 0;
 
 ?>
 
+<!-- Search Function -->
+<script>
+  function processSearch() {
+    var searchValue = document.getElementById('thesearch').value;
+    window.location.href = "../browse/search.php?thesearch=" + searchValue;
+  }
+</script>
+
 <!doctype html>
 <html lang="en">
 
@@ -59,99 +67,14 @@ $total = 0;
 </head>
 
 <body>
-  <!-- Top Bar - Promo Code -->
-  <div class="topbar" style="height: 35px">
-    <p class="offer" style="font-size: 16px"> USE PROMO CODE 'TENOFF' TO SAVE $10 on your first order!</p>
-  </div>
-
-   <!-- Navigation Bar -->
-  <div class="header">
-    <nav class="py-2 bg-light border-bottom" style="height: 60px">
-      <div class="container d-flex flex-wrap" style="font-size: 20px">
-      <ul class="nav me-auto">
-          <li class="nav-item"><a href="../info/about.php" class="nav-link link-dark px-2 toplink">About&nbsp;&nbsp;<i class="bi bi-card-text"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="nav-item">
-
-            <?php if ($loggedIn && $type == 0) : ?>
-              <a href="../admin/admin_dash.php" class="nav-link link-dark px-2 toplink">
-                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
-              </a>
-            <?php elseif ($loggedIn && $type == 1) : ?>
-              <a href="../author/author_dash.php" class="nav-link link-dark px-2 toplink">
-                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
-              </a>
-            <?php elseif ($loggedIn && $type == 2) : ?>
-              <a href="../info/dashboard.php" class="nav-link link-dark px-2 toplink">
-                Dashboard&nbsp;&nbsp;<i class="bi bi-bar-chart-line"></i>
-              </a>
-            <?php endif; ?>
-
-          </li>
-        </ul>
-
-        <!-- Logo -->
-        <a href="index.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-          <ul class="nav">
-              <i class="bi bi-moon-stars" style="font-size: 20px; padding-top: 10px; padding-left: 1rem"></i> 
-          <p style="font-size: 22px; padding-top: 5px; padding-left: 1rem; padding-right: 1rem">Luminary</p>
-          <i class="bi bi-stars" style="font-size: 15px; padding-top: 12px; padding-right: 1rem"></i>
-   </ul>
-        </a>
-        <ul class="nav">
-
-          <?php if ($loggedIn) : ?>
-            <li class="nav-item"><a href="../bag/shoppingbag.php" class="nav-link link-dark px-2 toplink"><?php echo $bagNumber .= ' in bag' ?>&nbsp;&nbsp;&nbsp;<i class="bi bi-bag-heart"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item"><a href="../info/profile.php" class="nav-link link-dark px-2 toplink toplink">Account&nbsp;&nbsp;&nbsp;<i class="bi bi-person-square"></i></a></li>&nbsp;&nbsp;&nbsp;
-          <?php elseif (!$loggedIn) : ?>
-            <li class="nav-item"><a href="../login/login.php" class="nav-link link-dark px-2 toplink toplink">Login</a></li>
-            <li class="nav-item"><a href="../login/register.php" class="nav-link link-dark px-2 toplink toplink">Sign up</a></li>
-          <?php endif; ?>
-        </ul>
-      </div>
-    </nav>
+  <!-- Navigation Bar -->
+  <?php include "../components/navigation.php" ?>
 
     <!-- Search Bar -->
-    <header class="py-2 mb-2 border-bottom">
-      <div class="container d-flex flex-wrap justify-content-center">
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0">
-          <div class="input-icons">
-            <a onclick="processSearch()"><i class="bi bi-search-heart icon" style="font-size: 22px; padding-top: 10px; color: teal"></i><a>
-                <input type="search" id="thesearch" name="thesearch" style="font-size: 20px; width: 500px; height: 40px; padding-left: 60px" class="form-control input-field" placeholder="Search by Title, Author, or Keyword" aria-label="Search">
-          </div>
-        </form>
-      </div>
-    </header>
+    <?php include "../components/searchbar.html" ?>
 
     <!-- Categories Navigation Bar -->
-    <header class="border-bottom">
-      <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/bestsellers.php">Bestsellers</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="../browse/new.php">New In</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/collections.php">Collections</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/fiction.php">Fiction</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/nonfiction.php">Nonfiction</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <li class="nav-item">
-          <a class="nav-link" style="color:black; font-size:22px;" href="../browse/classics.php">Classics</a>
-        </li>
-        <p style="font-size: 25px; opacity: 0.3">|</p>
-        <a class="nav-link" style="color:black; font-size:22px;" href="../browse/all_books.php">Browse All</a>
-        </li>
-      </ul>
-    </header>
+    <?php include "../components/categories.html" ?>
     <br><br>
   </div>
 
@@ -167,7 +90,7 @@ $total = 0;
         <span style="font-size: 30px;">Summary</span>
       </div>
       <div class="product border-bottom table-responsive px-5">
-        <table class="table table-borderless">
+        <table class="table table-borderless" style="font-size: 22px">
           <tbody>
             <?php
             if (mysqli_num_rows($result) == 1) {
@@ -203,12 +126,12 @@ $total = 0;
       </div>
 
       <!-- Subtotal and Proceed Buttons -->
-      <div class="row d-flex justify-content-end px-5" style="font-size: 28px">
+      <div class="row d-flex justify-content-end px-5">
         <div class="col-md-5" style="padding-bottom: 1.5rem;">
           <div class="text-right">
             <form action="./checkout.php?subtotal='<? echo $total ?>'" method="get">
               <table class="table table-borderless">
-                <tbody class="totals">
+                <tbody class="totals" style="font-size: 26px">
                   <tr class="border-top border-bottom ">
                     <td>
                       <div class="text-left">
@@ -223,11 +146,9 @@ $total = 0;
                   </tr>
                 </tbody>
               </table>
-              <button class="btn btn-outline-success" type="submit" style="width: 22rem; font-size: 28px">Proceed to Checkout</button>
-            </form>
-            <div style="padding-top: 10px">
+              <button class="btnstandard" type="submit" style="width: 22rem; font-size: 28px">Proceed to Checkout</button><p></p>
               <a href="javascript:history.back(2)"><button class="btn btn-outline-secondary" type="submit" style="width: 22rem; font-size: 28px">Continue Shopping</button></a>
-            </div>
+            </form>  
           </div>
         </div>
       </div>
@@ -240,52 +161,6 @@ $total = 0;
 
 </body>
 
-<!-- Footer -->
-<div class="container">
-  <footer class="py-5">
-    <div class="row">
-      <div class="col-2">
-        <h5>BROWSE CATEGORIES</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./browse/bestsellers.php" class="nav-link p-0 text-muted">Bestsellers</a></li>
-          <li class="nav-item mb-2"><a href="./browse/new.php" class="nav-link p-0 text-muted">New In</a></li>
-          <li class="nav-item mb-2"><a href="./browse/collections.php" class="nav-link p-0 text-muted">Collections</a></li>
-          <li class="nav-item mb-2"><a href="./browse/fiction.php" class="nav-link p-0 text-muted">Fiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/nonfiction.php" class="nav-link p-0 text-muted">Nonfiction</a></li>
-          <li class="nav-item mb-2"><a href="./browse/classics.php" class="nav-link p-0 text-muted">Classics</a></li>
-          <li class="nav-item mb-2"><a href="./browse/all_books.php" class="nav-link p-0 text-muted">Browse All</a></li>
-        </ul>
-        </ul>
-      </div>
-
-      <div class="col-2">
-        <h5>QUICK HELP</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./info/profile.php" class="nav-link p-0 text-muted">Account</a></li>
-          <li class="nav-item mb-2"><a href="./info/about.php" class="nav-link p-0 text-muted">About</a></li>
-
-        </ul>
-      </div>
-
-      <div class="col-2">
-        <h5>SHARE WITH YOUR FRIENDS!</h5>
-        <a href="https://www.facebook.com"><i class="bi bi-facebook" style="font-size: 45px; padding-right: 15px"></i></a>
-        <a href="https://www.twitter.com"><i class="bi bi-twitter" style="font-size: 45px; padding-right: 15px"></i></a>
-        <a href="https://www.instagram.com"><i class="bi bi-instagram" style="font-size: 45px; padding-right: 15px"></i></a>
-
-      </div>
-
-      <div class="col-2">
-        <h5>CONNECT WITH ME!</h5>
-        <a href="https://www.linkedin.com/in/shea-tipton-78189516b/"><i class="bi bi-linkedin" style="font-size: 45px; padding-right: 15px"></i></a>
-        <a href="https://github.com/sheatipton"><i class="bi bi-github" style="font-size: 45px; padding-right: 15px"></i></a>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-between py-4 my-4 border-top">
-      <p>&copy; Luminary, Inc. 2022. All rights reserved.</p>
-    </div>
-  </footer>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -298,5 +173,8 @@ $total = 0;
       document.getElementById('demoInput').stepDown();
     }
   </script>
+
+  <!-- Footer -->
+<?php include "../components/footer.html" ?>
 
 </html>
