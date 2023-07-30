@@ -6,6 +6,7 @@ An online bookstore created for book lovers who dream of an enchanting shopping 
 - [Description](#description)
 - [Installation](#installation)
 - [Tour](#tour)
+- [Original Version](#original-version)
 - [Resources](#resources)
 
 ## Description
@@ -47,11 +48,11 @@ View Project Screenshots Below
 
 | Homepage - features a changing image carousel for promotions and marketing |
 |---------|
-| <img alt="Homepage" src="https://github.com/sheatipton/Luminary/assets/63987819/f7df04a9-fb39-4f8d-9091-b25393567083"><br><br> |
+<img alt="Homepage" src="https://github.com/sheatipton/Luminary/assets/63987819/f7df04a9-fb39-4f8d-9091-b25393567083"><br><br> |
 
 | About - details the project |
 |---------|
-| <img alt="About" src="https://github.com/sheatipton/Luminary/assets/63987819/80a547f7-583d-451e-a13b-53ed710496b7"><br><br> |
+<img alt="About" src="https://github.com/sheatipton/Luminary/assets/63987819/80a547f7-583d-451e-a13b-53ed710496b7"><br><br> |
 
 | Sign Up - prevents duplicate email signups and requires accurate password confirmation | 
 |---------|
@@ -113,11 +114,34 @@ View Project Screenshots Below
 |---------|
 <img alt="OrderCompleted" src="https://github.com/sheatipton/Luminary/assets/63987819/15e50585-e677-4e09-9197-53d49f217101"><br><br> |
 
-### Tools
+## Original Version
+Significant modifications have been made by me to produce the current version of Luminary.
+
+Luminary 2.0 would not have been possible without original contributions by:
+
+* Christine Zhu
+    * implemented Bootstrap stylesheets
+    * contributed to UI design
+
+* Fernanda Bonilla
+    * implemented various checkout functions
+    * contributed to data collection
+
+| Luminary Original Version |
+|---------|
+| <img alt="Screenshot 2023-07-07 at 2 10 56 PM" src="https://github.com/sheatipton/Luminary/assets/63987819/4b2516e0-ff99-4492-8bbd-41ef8245b9d9"> | 
+
+## Tools
 HTML, CSS, MySQL, PHP, Javascript
 
-### Resources
+## Resources
 Bootstrap, StackOverflow, W3Schools, TutorialsPoint
+
+* Disclaimers:
+
+    * Luminary is a fictional online bookstore. Any materials that portray similarities to any real e-commerce store are coincidental.
+
+    * Luminary is a personal project. For the purpose of representing book covers, images have been taken from the internet. Luminary does not claim any ownership or copyright over these images. If you own an image and would like it to be removed, please email me at shea.tipton7@gmail.com.
 
 
 
