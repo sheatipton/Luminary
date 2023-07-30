@@ -45,7 +45,7 @@ To run Luminary locally on your machine:
 View Project Screenshots Below
 <br>
 
-| Homepage - features a changing image carousel for promotions and marketing
+| Homepage - features a changing image carousel for promotions and marketing |
 |---------|
 | <img alt="Homepage" src="https://github.com/sheatipton/Luminary/assets/63987819/f7df04a9-fb39-4f8d-9091-b25393567083"><br><br> |
 
