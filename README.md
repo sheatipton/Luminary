@@ -1,4 +1,4 @@
-<img width="1440" alt="VIdeo" src="https://github.com/sheatipton/Luminary/assets/63987819/64c906a8-2495-48c0-9cb9-d1b2c8ac72bb"># Luminary
+Luminary
 An online bookstore created for book lovers who dream of an enchanting shopping experience.
 
 ## Table of Contents
