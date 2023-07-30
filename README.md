@@ -1,4 +1,4 @@
-# Luminary
+<img width="1440" alt="VIdeo" src="https://github.com/sheatipton/Luminary/assets/63987819/64c906a8-2495-48c0-9cb9-d1b2c8ac72bb"># Luminary
 An online bookstore created for book lovers who dream of an enchanting shopping experience.
 
 ## Table of Contents
@@ -46,5 +46,8 @@ HTML, CSS, MySQL, PHP, Javascript
 ## Resources
 Bootstrap, StackOverflow, W3Schools, TutorialsPoint
 
-## Images
+## Video
+
+[![Watch the video](<img width="1440" alt="Video Image" src="https://github.com/sheatipton/Luminary/assets/63987819/ab1ea0b2-a08d-46cd-bfcd-5bd6a797dea8">)]([https://youtu.be/vt5fpE0bzSY](https://youtu.be/QkwBxPO02kw))
+
 
